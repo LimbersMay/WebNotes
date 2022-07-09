@@ -1,0 +1,24 @@
+{
+  "name": "webnotes",
+  "version": "1.0.0",
+  "description": "Website where you can save all your notes and search them, you can log in or register with Google or Facebook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LimbersMay/WebNotes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LimbersMay/WebNotes/issues"
+  },
+  "homepage": "https://github.com/LimbersMay/WebNotes#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-validator": "^6.14.2"
+  }
+}
