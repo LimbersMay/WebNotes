@@ -1,10 +1,13 @@
 const bcrypt = require('bcryptjs');
-const { response } = require('express');
+const { response, request } = require('express');
 
-const login = async(req, res = response) => {
+const login = async(req = request, res = response) => {
+
+    const { email, password } = req.body;
 
     res.json({
-        status: 'Funcionando'
+        userEmail: email,
+        userPassword: password
     })
 
 };
