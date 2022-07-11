@@ -1,0 +1,108 @@
+body {
+    height: 100%;
+    background: linear-gradient(90deg, #ffffff 50%, #e0e0e0 50%);
+}
+
+#main-container {
+    height: 650px;
+    width: 700px;
+    background-color: white;
+    margin: 0 auto;
+    position: relative;
+
+    display: grid;
+
+    font-family: system-ui, -apple-system;
+
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+#form-container {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background-color: white;
+    text-align: center;
+
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top:50px;
+}
+
+a {
+    color: rgb(189, 189, 189);
+    text-decoration: underline rgb(201, 198, 198);
+}
+
+/* Form styles */
+#data-form-container {
+    background-color: white;
+}
+
+div input {
+    outline: none;
+    width: 300px;
+    height: 25px;
+    outline: none;
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+
+    border-bottom-color: rgb(185, 185, 185);
+
+    margin-bottom: 10px;
+}
+
+
+
+#login-button-container {
+    background-color: white;
+}
+
+#login-button {
+    border: none;
+    background-color: rgb(216, 211, 211);
+    width: 300px;
+    height: 35px;
+    border-radius: 3px;
+
+    color: rgb(153, 145, 145);
+}
+
+#continue {
+    color: rgb(185, 183, 183);
+    margin: 30px;
+}
+
+#social-media-container {
+    background-color: white;
+}
+
+.icon {
+    margin: 0;
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 30px;
+    border-color: rgb(214, 212, 212);
+
+    width: 50px;
+    height: 50px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 25px;
+
+}
+
+#facebook {
+    background-image: url('/images/facebook.png');
+}
+
+#google {
+    background-image: url('/images/google.png');
+}
+
+#forgot-pass-cont {
+    margin: 30px;
+}
