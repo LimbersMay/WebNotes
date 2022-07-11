@@ -41,6 +41,11 @@ class Server {
 
         // Public directory 
         this.app.use(express.static('public'));
+
+        this.app.use(express.urlencoded({
+            extended: true
+        }));
+
     }
 
     routes() {
