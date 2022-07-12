@@ -93,3 +93,8 @@ div input {
 #forgot-pass-cont {
     margin: 30px;
 }
+
+#error-message {
+    color: brown;
+    margin-bottom: 10px;
+}
