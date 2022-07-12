@@ -18,9 +18,12 @@
                 <h4>Or <a href="">Create Account</a></h4>
             </div>
 
-            <div id="data-form-container">
+            <div id="error-message">
+                {{ message }}
+            </div>
 
-                <form action="http://localhost:8080/api/auth/login" method="post">
+            <div>
+                <form id="login-form" action="http://localhost:8080/api/auth/login" method="post">
                     <input placeholder="Email Adress" type="text" name="email"><br>
                     <input placeholder="Password" type="password" name="password">
 
@@ -29,7 +32,7 @@
             </div>
 
             <div id="continue"> 
-                or continue with: 
+                Or continue with: 
             </div>
             
             <div id="social-media-container">
@@ -48,6 +51,5 @@
 
         </div>
     </div>
-    
 </body>
 </html>
