@@ -61,6 +61,11 @@ div input {
     color: rgb(153, 145, 145);
 }
 
+#login-button:hover {
+    color: white;
+    background-color:rgb(18, 87, 55);
+}
+
 #continue {
     color: rgb(185, 183, 183);
     margin: 30px;
