@@ -19,16 +19,17 @@
             </div>
 
             <div id="error-message">
-
+                {{ tittle }}
+                {{ errors }}
             </div>
 
             <div>
-                <form id="login-form" action="http://localhost:8080/api/auth/login" method="post">
+                <form id="login-form" action="http://localhost:8080/api/auth/signin" method="post">
 
-                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Username" name="username">
                     <input placeholder="Email adress" type="text" name="email"><br>
                     <input placeholder="Password" type="password" name="password">
-                    <input type="password" placeholder="Repeat password" name="password-reteat">
+                    <input type="password" placeholder="Repeat password" name="password_repeat">
                     <input id="login-button" type="submit" value="Sign In">
                 </form>
             </div>
