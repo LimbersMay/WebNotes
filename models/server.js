@@ -4,6 +4,8 @@ const cors = require('cors');
 const hbs = require('hbs');
 const dbConnection = require('../db/config');
 
+const cookieParser = require('cookie-parser');
+
 class Server {
 
     constructor() {
@@ -48,6 +50,8 @@ class Server {
             extended: true
         }));
 
+        // Cookie parser
+        this.app.use(cookieParser());
     }
 
     routes() {
