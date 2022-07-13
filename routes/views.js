@@ -1,8 +1,6 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
 
-const { login, signIn } = require('../controllers/views');
-
 const router = Router();
 
 router.get('/login', (req, res) => {
