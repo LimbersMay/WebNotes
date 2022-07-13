@@ -3,11 +3,11 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = Schema({
 
-    nombre: {
+    username: {
         type: String,
         required: [true, 'El nombre es requerido']
     },
-    correo: {
+    email: {
         type: String,
         required: [true, 'El correo es requerido']
     },
@@ -15,7 +15,7 @@ const userSchema = Schema({
         type: String,
         required: [true, 'El password es requerido']
     },
-    notas: [{
+    notes: [{
         tituloNota: String,
         contenido: String
     }]
