@@ -4,7 +4,7 @@ body {
 }
 
 #main-container {
-    height: 650px;
+    height: 600px;
     width: 700px;
     background-color: rgb(252, 252, 252);
     margin: 0 auto;
@@ -102,4 +102,48 @@ div input {
 #error-message {
     color: brown;
     margin-bottom: 10px;
+    text-align: justify;
+}
+
+/* Responsivo */
+@media screen and (max-width:699px){
+    #main-container {
+        width: 100%;
+    }
+
+    #form-container {
+        width: 85%;
+    }
+
+    #login-form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px){
+    #form-container {
+        margin: 8%;
+    }
+
+    #login-form {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 350px){
+    #form-container {
+        margin: 3%;
+    }
+
+    #login-form {
+        width: 100%;
+    }
+
+    div input {
+        width: 100%;
+    }
+
+    #login-button {
+        width: 100%;
+    }
 }
