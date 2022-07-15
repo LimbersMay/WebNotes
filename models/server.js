@@ -18,8 +18,8 @@ class Server {
         this.app.set('view engine', 'hbs');
 
         // Rutas
-        this.rootPath = "/";
         this.authPath = '/api/auth/';
+        this.userPath = '/user';
         
         // Conectar la base de datos
         this.connectDB();
@@ -56,7 +56,7 @@ class Server {
 
     routes() {
         this.app.use(this.authPath, require('../routes/auth'));
-        this.app.use(this.rootPath, require('../routes/views'));
+        this.app.use(this.userPath, require('../routes/user'));
     }
 
     listen() {
