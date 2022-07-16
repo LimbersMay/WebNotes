@@ -61,7 +61,7 @@ class Server {
             secret: process.env.SESSION_SECRET,
             resave: false,
             saveUninitialized: true
-        }))
+        }));
 
         // Configuración de passport
         this.app.use(passport.initialize());
