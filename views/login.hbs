@@ -4,50 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>LogIn</title>
 
     <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
-    <div id="main-container">
-        <div id="form-container">
+    
+    <div id="container">
+        <picture id="logo">
+            <img class="logo__picture" src="/images/logo.svg" alt="">
 
-            <div id="text-top-messages">
-                <h1>Log into WebNotes </h1>
-                <h4>Or <a href="/user/signin">Create Account</a></h4>
-            </div>
+        </picture>
 
-            <div id="error-message">
-                {{ errors }}
-                {{ fields_errors }}
-            </div>
+        <div class="form__container">
 
-            <div>
-                <form id="login-form" action="http://localhost:8080/api/auth/login" method="post">
-                    <input placeholder="Email Adress" type="text" name="username"><br>
-                    <input placeholder="Password" type="password" name="password">
-
-                    <input id="login-button" type="submit" value="Log In">
-                </form>
-            </div>
-
-            <div id="continue"> 
-                Or continue with: 
-            </div>
             
-            <div id="social-media-container">
-                <div class="icon" id="google">
-                    
-                </div>
+            <br><h1>WebNotes</h1><br><br>
 
-                <div class="icon" id="facebook">
-                   
-                </div>
+            <p>Welcome to WebNotes</p><br>
+
+            <form action="http://localhost:8080/api/auth/login" method="post">
+
+                <input class="input" type="text" placeholder="Email" name="username">
+
+                <input class="input" type="password" placeholder="password" name="password">
+
+                <p class="text__forgot">
+                    <a class="forgot__password" href="">
+                        <small>¿forgot password?</small>
+                    </a>
+                </p>
+
+                <input class="login__button" type="submit" value="Log In">
+            </form>
+
+            <p class="container__or">
+                <span class="text">or</span>
+            </p><br>
+
+            <p>Log In with Google</p>
+
+            <div class="signUp__container">
+                <p>New WebNotes?</p>
+                <a href="/user/signin">Create Account</a>
             </div>
-            <div id="forgot-pass-cont">
-                <a id="forfot-password" href="">Forgot Password?</a>
-            </div>
+
         </div>
     </div>
+
 </body>
 </html>

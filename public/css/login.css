@@ -1,149 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    height: 100%;
-    background: linear-gradient(90deg, #ffffff 50%, #e0e0e0 50%);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont;
+
+    background-color: rgb(22, 83, 99);
 }
 
-#main-container {
-    height: 600px;
-    width: 700px;
-    background-color: rgb(252, 252, 252);
-    margin: 0 auto;
-    position: relative;
+#container {
+    width: 750px;
+    height: 450px;
 
-    display: grid;
-
-    font-family: system-ui, -apple-system;
-
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    display: flex;
 }
 
-#form-container {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    text-align: center;
+#logo {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 5px;
 
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-top:50px;
+    background-color: #008E89;
+    display: flex;
+    justify-content: center;
+    width: 55%;
 }
 
-a {
-    color: rgb(189, 189, 189);
-    text-decoration: underline rgb(201, 198, 198);
-}
-
-/* Form styles */
-
-div input {
-    outline: none;
+.logo__picture {
     width: 300px;
-    height: 25px;
+}
+
+.form__container {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 20px;
+
+    width: 45%;
+    background-color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.input {
     outline: none;
+    width: 250px;
+    height: 25px;
 
     border-top: none;
     border-left: none;
     border-right: none;
     background-color: transparent;
 
-    border-bottom-color: rgb(185, 185, 185);
+    border-bottom-color: rgb(160, 160, 160);
+    border-bottom-width: 1px;
 
     margin-bottom: 10px;
 }
 
-#login-button {
-    border: none;
-    background-color: rgb(216, 211, 211);
-    width: 300px;
-    height: 35px;
-    border-radius: 3px;
-
-    color: rgb(153, 145, 145);
+.forgot__password {
+    text-decoration: none;
 }
 
-#login-button:hover {
-    color: white;
-    background-color:rgb(18, 87, 55);
-}
-
-#continue {
-    color: rgb(185, 183, 183);
-    margin: 30px;
-}
-
-.icon {
-    margin: 0;
-    display: inline-block;
-    border: 1px solid;
-    border-radius: 30px;
-    border-color: rgb(214, 212, 212);
-
-    width: 50px;
-    height: 50px;
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 25px;
-
-}
-
-#facebook {
-    background-image: url('/images/facebook.png');
-}
-
-#google {
-    background-image: url('/images/google.png');
-}
-
-#forgot-pass-cont {
-    margin: 30px;
-}
-
-#error-message {
-    color: brown;
-    margin-bottom: 10px;
+.text__forgot {
     text-align: center;
+    margin-bottom: 15px;
+}
+
+a {
+    color: rgb(66, 66, 66);
+}
+
+.login__button {
+    border: none;
+    background-color: rgb(71, 69, 69);
+    width: 150px;
+    height: 35px;
+    border-radius: 20px;
+
+    margin-bottom: 35px;
+
+    color: rgb(255, 255, 255);
+}
+
+.container__or {
+    width: 250px;
+    border-bottom: 1px solid rgb(167, 167, 167);
+    line-height: 0.1em;
+    margin: 0 auto;
+}
+
+.text {
+    color: rgb(94, 94, 94);
+    background-color: #fff;
+    padding: 0 10px;
+}
+
+.signUp__container {
+    margin-top: 5px;
+
+    color: rgb(66, 66, 66);
+    font-size: 15px;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
 }
 
 /* Responsivo */
-@media screen and (max-width:699px){
-    #main-container {
+@media screen and (max-width:749px) {
+    #container {
+        width: 100%;
+        flex-direction: column;
+        position: static;
+        transform: none;
+        align-items: center;
+    }
+
+    #logo {
+        width: 100%;
+        flex-grow: 1;
+    }
+
+    .form__container {
         width: 100%;
     }
 
-    #form-container {
-        width: 85%;
-    }
-
-    #login-form {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 450px){
-    #form-container {
-        margin: 8%;
-    }
-
-    #login-form {
-        width: 100%;
-    }
-}
-
-@media screen and (max-width: 350px){
-    #form-container {
-        margin: 3%;
-    }
-
-    #login-form {
-        width: 100%;
-    }
-
-    div input {
-        width: 100%;
-    }
-
-    #login-button {
-        width: 100%;
+    .text__forgot {
+        
     }
 }

@@ -1,54 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignUp</title>
+    <title>LogIn</title>
+
     <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/signin.css">
 </head>
-
 <body>
+    
+    <div id="container">
+        <picture id="logo">
+            <img class="logo__picture" src="/images/logo.svg" alt="">
 
-    <div id="main-container">
-        <div id="form-container">
+        </picture>
 
-            <div id="text-top-messages">
-                <h1> Sign In </h1>
-            </div>
+        <div class="form__container">
 
-            <div id="error-message">
-                {{ fields_errors }}
-            </div>
+            
+            <br><h1>WebNotes</h1><br><br>
 
-            <div>
-                <form id="login-form" action="http://localhost:8080/api/auth/signin" method="post">
+            <p>Welcome to WebNotes</p><br>
 
-                    <input type="text" placeholder="Username" name="username">
-                    <input placeholder="Email adress" type="text" name="email"><br>
-                    <input placeholder="Password" type="password" name="password">
-                    <input type="password" placeholder="Repeat password" name="password_repeat">
-                    <input id="login-button" type="submit" value="Sign In">
-                </form>
-            </div>
+            <form action="http://localhost:8080/api/auth/signin" method="post">
 
-            <div id="continue">
-                Or continue with:
-            </div>
+                <input class="input" type="text" placeholder="Username" name="username">
 
-            <!--Social Media -->
-            <div id="social-media-container">
-                <div class="icon" id="google">
+                <input class="input" type="text" placeholder="Email" name="email">
 
-                </div>
+                <input class="input" type="password" placeholder="Password" name="password">
 
-                <div class="icon" id="facebook">
+                <input class="input" type="password" placeholder="Repeat password" name="password_repeat">
 
-                </div>
-            </div>
+                <input class="login__button" type="submit" value="Sign In">
+            </form>
+
+            <p class="container__or">
+                <span class="text">or</span>
+            </p><br>
+
+            <p>Sign In with Google</p>
         </div>
     </div>
-</body>
 
+</body>
 </html>
