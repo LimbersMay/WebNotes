@@ -5,8 +5,8 @@ const { passport } = require('../config/passport');
 
 const { login, signIn } = require('../controllers/auth');
 const { existeEmail } = require('../helpers/db-validators');
-const validatePassword = require('../middlewares/password-validator');
-const validarCampos = require('../middlewares/validar-campos');
+const { validatePassword } = require('../middlewares/password-validator');
+const { validarCampos } = require('../middlewares/validar-campos');
 
 const router = Router();
 

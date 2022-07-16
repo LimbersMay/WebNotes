@@ -11,4 +11,6 @@ const validatePassword = (value, {req}) => {
     }
 };
 
-module.exports = validatePassword;
+module.exports = {
+    validatePassword
+};
