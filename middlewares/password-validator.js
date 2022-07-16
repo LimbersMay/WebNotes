@@ -4,7 +4,7 @@ const validatePassword = (value, {req}) => {
     const { password_repeat } = req.body;
 
     if (value !== password_repeat) {
-        throw new Error('Las contraseñas deben ser iguales');
+        throw new Error('Passwords must be equal');
     }
     else {
         return true;
