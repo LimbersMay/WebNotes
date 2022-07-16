@@ -40,7 +40,7 @@ const signIn = async(req, res = response) => {
 
     await user.save();
 
-    res.redirect('/login');
+    res.redirect('/user/login');
 };
 
 module.exports = {
