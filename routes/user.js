@@ -1,25 +1,29 @@
 const { Router } = require('express');
-const { check } = require('express-validator');
-const validarCookies = require('../helpers/validar-cookies');
+const { login, signin, home } = require('../controllers/user');
 
 const router = Router();
 
-router.get('/login', (req, res) => {
-    
-    validarCookies(req, res, 'login');
+router.get('/login', (req, res, next) => {
+   
+    // Comprobamos si está autenticado
+    if (req.isAuthenticated()) return res.redirect('/user/home');
+    next();
 
-    res.render('login');
-});
+} ,login);
 
-router.get('/signin', (req, res) => {
-    
-    validarCookies(req, res, 'signin');
+router.get('/signin', (req, res, next) => {
 
-    res.render('signin');
-});
+    // Comprobamos si está autenticado
+    if (req.isAuthenticated()) return res.redirect('/user/home');
+    next();
 
-router.get('/home', (req, res) => {
-    res.render('home')
-});
+}, signin);
+
+router.get('/home', (req, res, next) => {
+    // Comprobamos si el usuario está autenticado
+    if (req.isAuthenticated()) return next();
+    res.redirect('/user/login');
+
+}, home);
 
 module.exports = router;
