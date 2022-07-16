@@ -19,12 +19,14 @@
         <div class="form__container">
 
             
-            <br><h1>WebNotes</h1><br><br>
+            <br><h1>WebNotes</h1><br>
 
             <p>Welcome to WebNotes</p><br>
 
-            {{errors}}
-            {{fields_errors}}
+            <div id="error__message">
+                {{ errors }}
+                {{ fields_errors }}
+            </div>
 
             <form action="http://localhost:8080/api/auth/login" method="post">
 

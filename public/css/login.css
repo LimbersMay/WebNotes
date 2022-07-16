@@ -45,6 +45,11 @@ body {
     padding: 15px;
 }
 
+#error__message {
+    font-size: 10px;
+    color: brown;
+}
+
 .input {
     outline: none;
     width: 250px;
