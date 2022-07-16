@@ -5,6 +5,9 @@ const hbs = require('hbs');
 const dbConnection = require('../db/config');
 
 const cookieParser = require('cookie-parser');
+const { passport } = require('../config/passport');
+const session = require('express-session');
+const flash = require('express-flash');
 
 class Server {
 
@@ -51,7 +54,20 @@ class Server {
         }));
 
         // Cookie parser
-        this.app.use(cookieParser());
+        this.app.use(cookieParser(process.env.COOKIESECRET));
+
+        // Session para el manejo de sesiones
+        this.app.use(session({
+            secret: process.env.SESSION_SECRET,
+            resave: false,
+            saveUninitialized: true
+        }))
+
+        // Configuración de passport
+        this.app.use(passport.initialize());
+        this.app.use(passport.session());
+        
+        this.app.use(flash());
     }
 
     routes() {
