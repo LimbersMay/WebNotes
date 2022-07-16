@@ -18,13 +18,13 @@
             </div>
 
             <div id="error-message">
-                {{ tittle }}
                 {{ errors }}
+                {{ fields_errors }}
             </div>
 
             <div>
                 <form id="login-form" action="http://localhost:8080/api/auth/login" method="post">
-                    <input placeholder="Email Adress" type="text" name="email"><br>
+                    <input placeholder="Email Adress" type="text" name="username"><br>
                     <input placeholder="Password" type="password" name="password">
 
                     <input id="login-button" type="submit" value="Log In">
