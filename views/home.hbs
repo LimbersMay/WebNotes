@@ -1,12 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+
+    <link rel="stylesheet" href="/css/home-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+
 <body>
-    
+
+    <header>
+
+        <picture>
+            <img src="images/notebook-svgrepo-com.svg" alt="">
+        </picture>
+
+        <h2 class="header__title">WebNotes</h2>
+
+    </header>
+
+    <div class="container">
+
+        <div class="profile__container">
+
+            <form action="" class="content__form">
+
+                <input type="text" placeholder="Search something">
+                <button class="content__search" type="submit"><i class="fa fa-search"></i></button>
+
+            </form>
+
+            <button class="content__add__note">
+                <big><b>Add Note</b></big>
+            </button>
+
+
+            <div class="content__notes">
+                
+                <div class="notes__note">
+
+                    <h3 class="note__title">Instalación de arch</h3>
+
+                    <p class="note__content">Para la instalación de arch se necesitan</p>
+
+                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
+
+                </div>
+
+                <div class="notes__note">
+
+                    <h3 class="note__title">Solucion de carga infinita en Docker</h3>
+
+                    <p class="note__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam voluptas magnam officiis dolore impedit. Voluptatum quibusdam laborum tenetur veritatis perspiciatis omnis eius, debitis dolore. Distinctio ipsum ratione soluta earum hic.</p>
+
+                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
+
+                </div>
+
+                <div class="notes__note">
+
+                    <h3 class="note__title">Desinstalar programa en Arch</h3>
+
+                    <p class="note__content">Para la instalación de arch se necesitan</p>
+
+                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
+
+                </div>
+
+                <div class="notes__note">
+
+                    <h3 class="note__title">Instalación de arch</h3>
+
+                    <p class="note__content">Para la instalación de arch se necesitan</p>
+
+                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
+
+                </div>
+
+                <div class="notes__note">
+
+                    <h3 class="note__title">Instalación de arch</h3>
+
+                    <p class="note__content">Para la instalación de arch se necesitan</p>
+
+                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="notes__content__container">
+
+            <textarea class="input__title" cols="39" rows="1" placeholder="Tittle"></textarea>
+
+            <textarea class="input__body" cols="30" rows="15" placeholder="Input your text here"></textarea>
+
+            <button class="note__save">Save</button>
+            <button class="note__delete">Delete</button>
+
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+
+    <script  type="module" src="/js/mostrar-notas.js"></script>
+    <script type="module" src="/js/agregar-nota.js"></script>
+
+    <script type="module" src="/js/guardar-nota.js"></script>
 </body>
+
 </html>
