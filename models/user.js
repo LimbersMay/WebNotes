@@ -17,7 +17,8 @@ const userSchema = Schema({
     },
     notes: [{
         tituloNota: String,
-        contenido: String
+        contenido: String,
+        fecha: Date
     }]
 });
 
