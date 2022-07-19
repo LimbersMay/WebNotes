@@ -1,5 +1,5 @@
 import { makeVisible } from "./helpers.js";
-import sendData from "./consumir-api.js";
+import { saveNoteDb, removeNoteDb } from "./consumir-api.js";
 // MÉTODOS PARA LOS BOTONES DE GUARDAR Y ELIMINAR NOTA
 
 // Función para guardar la nota
@@ -34,10 +34,9 @@ const saveNote = async() => {
     const idElement = activeNote.id;
 
     // Consumimos la API para guardar la nota
-
     try {
         // Resolvemos la promesa
-        const id = await sendData(idElement, inputTitle.value, inputContent.value, dateFormatted);
+        const id = await saveNoteDb(idElement, inputTitle.value, inputContent.value, dateFormatted);
 
         // Le agregamos a la nota activa su ID
         activeNote.setAttribute('id', id);
@@ -49,13 +48,28 @@ const saveNote = async() => {
 }
 
 // Función para eliminar una nota
-const deleteNote = () => {
+const deleteNote = async() => {
 
     // Obtenemos la nota que está activa
     const activeNote = document.getElementsByClassName('active')[0];
+    const activeNoteId = activeNote.id;
 
     // La eliminamos
     activeNote.remove();
+
+    // Limpiamos los textarea
+    const inputTitle = document.getElementsByClassName('input__title')[0];
+    const inputContent = document.getElementsByClassName('input__body')[0];
+
+    inputTitle.value = '';
+    inputContent.value = '';
+
+    // La eliminamos de la base de datos
+    try{
+        await removeNoteDb(activeNoteId);
+    } catch(error) {
+        console.warn(error);
+    }
 
     // Ocultamos el input si estamos en una resolución menor a 500
     if (screen.width < 500) {
