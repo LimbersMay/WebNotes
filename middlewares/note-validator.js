@@ -1,3 +1,4 @@
+const { validationResult } = require("express-validator");
 
 const estaAutenticado = (req, res, next) => {
     // Verificamos que el usuario esté autenticado
@@ -7,6 +8,19 @@ const estaAutenticado = (req, res, next) => {
     next();
 }
 
+const validarNota = (req, res, next) => {
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(400).json({
+            errors
+        });
+    }
+
+    next();
+}
+
 module.exports = {
-    estaAutenticado
+    estaAutenticado,
+    validarNota
 }
