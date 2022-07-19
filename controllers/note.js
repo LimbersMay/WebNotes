@@ -23,7 +23,7 @@ const saveNote = async(req = request, res) => {
             // Condiciones para filtrar
             {
                 _id,
-                "notes": { "$elemMatch": { idNote } } 
+                "notes": { "$elemMatch": { _id: idNote } } 
             },
 
             // Elemento a actualizar
