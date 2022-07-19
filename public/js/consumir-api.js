@@ -1,6 +1,6 @@
 
 // Función para enviar los datos a la base de datos
-const sendData = (title, content, date) => {
+const sendData = async(title, content, date) => {
     // Enviamos los datos usando fetch 
 
     const body = {
@@ -9,17 +9,16 @@ const sendData = (title, content, date) => {
         date
     };
 
-    fetch('http://localhost:8080/api/note/saveNote', {
+    const bodyResponse = await fetch('http://localhost:8080/api/note/saveNote', {
 
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(body)
-    })
-    .then(res => res.json())
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    });
+
+    return bodyResponse.json();
 }
 
 export default sendData;
