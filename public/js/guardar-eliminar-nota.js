@@ -5,7 +5,6 @@ import sendData from "./consumir-api.js";
 // Función para guardar la nota
 const saveNote = async() => {
     // Obtenemos el textarea del titulo y del contenido
-
     const inputTitle = document.getElementsByClassName('input__title')[0];
 
     const inputContent = document.getElementsByClassName('input__body')[0];
@@ -18,9 +17,7 @@ const saveNote = async() => {
     const activeNote = document.getElementsByClassName('active')[0];
 
     // Establecemos la información a sus hijos (titulo, contenido y fecha)
-
     activeNote.children.item(0).innerHTML = inputTitle.value;
-
     activeNote.children.item(1).innerHTML = inputContent.value;
 
     // Le ponemos la fecha solo si esta está vacía
@@ -33,8 +30,11 @@ const saveNote = async() => {
         makeVisible('list');
     }
 
+    // Obtenemos el ID del elemento activo
+    const idElement = activeNote.id;
+
     // Consumimos la API para guardar la nota
-    const { id } = await sendData(inputTitle.value, inputContent.value, dateFormatted);
+    const { id } = await sendData(idElement, inputTitle.value, inputContent.value, dateFormatted);
 
     // Le agregamos a la nota activa su ID
     activeNote.setAttribute('id', id);
