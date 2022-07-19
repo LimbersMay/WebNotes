@@ -13,15 +13,18 @@ const existeNota = async(idNote, { req }) => {
         
     const { _id } = req.user;
 
-    const note = await User.findOne(
-        {
-            _id,
-            "notes": { "$elemMatch": { _id: idNote } } 
+    // Haremos esta busqueda si y solo si recibimos el Id de la nota
+    if (idNote !== ''){
+        const note = await User.findOne(
+            {
+                _id,
+                "notes": { "$elemMatch": { _id: idNote } } 
+            }
+        )
+    
+        if (note == null) {
+            throw new Error(`La nota con el ID ${idNote} no existe`);
         }
-    )
-
-    if (note == null) {
-        throw new Error(`La nota con el ID ${idNote} no existe`);
     }
 };
 
