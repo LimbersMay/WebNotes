@@ -11,7 +11,7 @@ const existeEmail = async (email) => {
 
 const existeNota = async(idNote, { req }) => {
         
-    const { _id } = req.body;
+    const { _id } = req.user;
 
     const note = await User.findOne(
         {
