@@ -3,9 +3,7 @@ const { validationResult } = require("express-validator");
 const estaAutenticado = (req, res, next) => {
     // Verificamos que el usuario esté autenticado
     if (req.isAuthenticated()) return next();
-    res.redirect('/user/login');
-
-    next();
+    return res.redirect('/user/login');
 }
 
 const validarNota = (req, res, next) => {
