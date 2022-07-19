@@ -2,13 +2,30 @@ const User = require("../models/user");
 
 const existeEmail = async (email) => {
 
-    const existe = await User.findOne({ email });
+    const exist = await User.findOne({ email });
 
-    if (existe) {
+    if (exist) {
         throw new Error(`El correo ${ email } ya se encuentra registrado`);
     }
 };
 
+const existeNota = async(idNote, { req }) => {
+        
+    const { _id } = req.body;
+
+    const note = await User.findOne(
+        {
+            _id,
+            "notes": { "$elemMatch": { _id: idNote } } 
+        }
+    )
+
+    if (note == null) {
+        throw new Error(`La nota con el ID ${idNote} no existe`);
+    }
+};
+
 module.exports = {
-    existeEmail
+    existeEmail,
+    existeNota
 }
