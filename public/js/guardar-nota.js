@@ -1,11 +1,12 @@
 import { makeVisible } from "./helpers.js";
+import sendData from "./consumir-api.js";
 // MÉTODOS PARA LOS BOTONES DE GUARDAR Y ELIMINAR NOTA
 
 // Función para guardar la nota
 const saveNote = () => {
     // Obtenemos el textarea del titulo y del contenido
 
-    const inputTittle = document.getElementsByClassName('input__title')[0];
+    const inputTitle = document.getElementsByClassName('input__title')[0];
 
     const inputContent = document.getElementsByClassName('input__body')[0];
 
@@ -18,7 +19,7 @@ const saveNote = () => {
 
     // Establecemos la información a sus hijos (titulo, contenido y fecha)
 
-    activeNote.children.item(0).innerHTML = inputTittle.value;
+    activeNote.children.item(0).innerHTML = inputTitle.value;
 
     activeNote.children.item(1).innerHTML = inputContent.value;
 
@@ -31,6 +32,9 @@ const saveNote = () => {
     if (screen.width < 500) {
         makeVisible('list');
     }
+
+    // Consumimos la API para guardar la nota
+    sendData(inputTitle.value, inputContent.value, dateFormatted);
 }
 
 // Función para eliminar una nota
