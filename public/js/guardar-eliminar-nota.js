@@ -34,10 +34,20 @@ const saveNote = async() => {
     const idElement = activeNote.id;
 
     // Consumimos la API para guardar la nota
-    const { id } = await sendData(idElement, inputTitle.value, inputContent.value, dateFormatted);
 
-    // Le agregamos a la nota activa su ID
-    activeNote.setAttribute('id', id);
+    try {
+        // Resolvemos la promesa
+        const id = await sendData(idElement, inputTitle.value, inputContent.value, dateFormatted);
+
+        // Le agregamos a la nota activa su ID
+        activeNote.setAttribute('id', id);
+
+    } catch(errors) {
+        location.reload();
+        console.error(errors);
+    }
+
+    console.log('Id enviado..');
 }
 
 // Función para eliminar una nota
