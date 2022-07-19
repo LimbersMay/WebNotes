@@ -24,10 +24,10 @@ const home = (req, res) => {
     // Formateamos la fecha
     const notesFormatted = notes.map(note => {
 
-        let {id, date, title, content} = note;
+        let {_id, date, title, content} = note;
 
         return {
-            id,
+            _id,
             date: date.toDateString(),
             title,
             content
