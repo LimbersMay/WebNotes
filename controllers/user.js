@@ -18,7 +18,25 @@ const signin = (req, res) => {
 }
 
 const home = (req, res) => {
-    res.render('home')
+
+    const { notes } = req.user;
+
+    // Formateamos la fecha
+    const notesFormatted = notes.map(note => {
+
+        let {id, date, title, content} = note;
+
+        return {
+            id,
+            date: date.toDateString(),
+            title,
+            content
+        };
+    });
+
+    res.render('home', {
+        nota: notesFormatted
+    });
 }
 
 module.exports = {
