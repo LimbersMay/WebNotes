@@ -10,12 +10,6 @@ const saveNote = async(req = request, res) => {
     // Creamos un nuevo elemento de Nota
     const { idNote, title, content, date } = req.body; 
 
-    const note = {
-        title,
-        content,
-        date
-    }
-
     // Si el Id de la nota no está vacío, quiere decir que debemos actualizar la nota
     if (idNote !== '') {
 
@@ -42,6 +36,12 @@ const saveNote = async(req = request, res) => {
 
     // En caso de que la nota sea nueva 
     // Agregamos la nota en el arreglo de notas del usuario
+    const note = {
+        title,
+        content,
+        date
+    }
+
     const user = await User.findOneAndUpdate(
         {_id}, // Filtro
         {
@@ -62,8 +62,31 @@ const saveNote = async(req = request, res) => {
     });
 }
 
-const removeNote = (req, res) => {
+const removeNote = async(req, res) => {
 
+    // Obtenemos el Id del usuario autentificado
+    const { _id } = req.user;
+
+    // Obtenemos el Id de la nota a eliminar
+    const { idNote } = req.body;
+
+    await User.findOneAndUpdate(
+        // Filtros para encontrar la nota
+        {
+            _id,
+        },
+        {
+            $pull: {
+                notes: {
+                    _id: idNote
+                }
+            }
+        }
+    )
+
+    return res.status(200).json({
+        msg: 'Everything is Ok'
+    });
 }
 
 module.exports = {
