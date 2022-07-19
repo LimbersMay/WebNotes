@@ -10,7 +10,6 @@ const router = Router();
 
 router.post('/saveNote', [
     estaAutenticado,
-    check('idNote', 'No es un Id de mongo válido').isMongoId(),
     check('idNote').custom(existeNota),
     validarNota
 ], saveNote);
