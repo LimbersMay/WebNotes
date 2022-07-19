@@ -21,11 +21,10 @@ const sendData = (idNote, title, content, date) => {
         });
 
         let { id, errors } = await bodyResponse.json();
-
-        errors = Object.entries(errors.errors);
-
-        // Si ocurrió un error al hacer la petición 
-        if (errors.length > 0) {
+        
+        // Si ocurrió un error al hacer la petición lo devolvemos en la promesa
+        if (errors !== undefined) {
+            errors = Object.entries(errors.errors);
             return reject(errors);
         }
 

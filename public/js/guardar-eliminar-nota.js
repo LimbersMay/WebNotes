@@ -46,8 +46,6 @@ const saveNote = async() => {
         location.reload();
         console.error(errors);
     }
-
-    console.log('Id enviado..');
 }
 
 // Función para eliminar una nota
