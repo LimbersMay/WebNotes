@@ -3,7 +3,7 @@ import sendData from "./consumir-api.js";
 // MÉTODOS PARA LOS BOTONES DE GUARDAR Y ELIMINAR NOTA
 
 // Función para guardar la nota
-const saveNote = () => {
+const saveNote = async() => {
     // Obtenemos el textarea del titulo y del contenido
 
     const inputTitle = document.getElementsByClassName('input__title')[0];
@@ -34,7 +34,10 @@ const saveNote = () => {
     }
 
     // Consumimos la API para guardar la nota
-    sendData(inputTitle.value, inputContent.value, dateFormatted);
+    const { id } = await sendData(inputTitle.value, inputContent.value, dateFormatted);
+
+    // Le agregamos a la nota activa su ID
+    activeNote.setAttribute('id', id);
 }
 
 // Función para eliminar una nota
