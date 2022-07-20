@@ -1,5 +1,4 @@
 import removeTargetNota from "./target-note.js";
-import showInput from "./show-note-inf.js";
 
 // FUNCIÓN PARA CREAR UNA NUEVA NOTA DENTRO DEL DOM
 const createNoteElement = () => {
@@ -24,10 +23,6 @@ const createNoteElement = () => {
     notaDiv.appendChild(tituloDiv);
     notaDiv.appendChild(contenidoDiv);
     notaDiv.appendChild(fechaDiv);
-
-    // Le agregamos el evento para mostrar su contenido 
-    notaDiv.addEventListener('click', removeTargetNota);
-    notaDiv.addEventListener('click', showInput);
 
     // Eliminamos la clase active de todas las notas
     removeTargetNota(notaDiv);
