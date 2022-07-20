@@ -21,21 +21,8 @@ const home = (req, res) => {
 
     const { notes } = req.user;
 
-    // Formateamos la fecha
-    const notesFormatted = notes.map(note => {
-
-        let {_id, date, title, content} = note;
-
-        return {
-            _id,
-            date: date.toDateString(),
-            title,
-            content
-        };
-    });
-
     res.render('home', {
-        nota: notesFormatted
+        nota: notes
     });
 }
 
