@@ -1,6 +1,4 @@
-import { makeVisible } from "./helpers.js";
-import { saveNoteDb, removeNoteDb } from "./consumir-api.js";
-// MÉTODOS PARA LOS BOTONES DE GUARDAR Y ELIMINAR NOTA
+import { saveNoteDb, removeNoteDb } from './api.js';
 
 // Función para guardar la nota
 const saveNote = async() => {
@@ -48,7 +46,7 @@ const saveNote = async() => {
 }
 
 // Función para eliminar una nota
-const deleteNote = async() => {
+const removeNote = async() => {
 
     // Obtenemos la nota que está activa
     const activeNote = document.getElementsByClassName('active')[0];
@@ -64,24 +62,20 @@ const deleteNote = async() => {
     inputTitle.value = '';
     inputContent.value = '';
 
+    // Ocultamos el input si estamos en una resolución menor a 500
+    if (screen.width < 500) {
+        makeVisible('list');
+    }
+
     // La eliminamos de la base de datos
     try{
         await removeNoteDb(activeNoteId);
     } catch(error) {
         console.warn(error);
     }
-
-    // Ocultamos el input si estamos en una resolución menor a 500
-    if (screen.width < 500) {
-        makeVisible('list');
-    }
 }
 
-// Obtenemos el botón de guardar
-const btnSave = document.getElementsByClassName('note__save')[0];
-
-// Obtenemos el botón de eliminar
-const btnRemove = document.getElementsByClassName('note__delete')[0];
-
-btnSave.addEventListener('click', saveNote);
-btnRemove.addEventListener('click', deleteNote);
+export {
+    saveNote,
+    removeNote
+}

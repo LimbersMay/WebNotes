@@ -1,4 +1,3 @@
-
 // Función para enviar los datos a la base de datos
 const saveNoteDb = (idNote, title, content, date) => {
     // Enviamos los datos usando fetch 
@@ -63,4 +62,4 @@ const removeNoteDb = (idNote) => {
 export {
     saveNoteDb,
     removeNoteDb
-};
+}

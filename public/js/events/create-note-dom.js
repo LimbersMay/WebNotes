@@ -1,7 +1,8 @@
-import {mostrarInput, removeTargetNota} from "./mostrar-notas.js";
+import removeTargetNota from "./target-note.js";
+import showInput from "./show-note-inf.js";
 
 // FUNCIÓN PARA CREAR UNA NUEVA NOTA DENTRO DEL DOM
-const crearNotaDOM = () => {
+const createNoteElement = () => {
 
     // Creamos el elemento del contenedor
     const notaDiv = document.createElement('div');
@@ -26,7 +27,7 @@ const crearNotaDOM = () => {
 
     // Le agregamos el evento para mostrar su contenido 
     notaDiv.addEventListener('click', removeTargetNota);
-    notaDiv.addEventListener('click', mostrarInput);
+    notaDiv.addEventListener('click', showInput);
 
     // Eliminamos la clase active de todas las notas
     removeTargetNota(notaDiv);
@@ -35,7 +36,7 @@ const crearNotaDOM = () => {
 }   
 
 // Función para agregar una nueva nota 
-const agregarNota = (event = event) => {
+const addDomNote = (event = event) => {
 
     event.preventDefault();
 
@@ -63,7 +64,7 @@ const agregarNota = (event = event) => {
     inputContent.value = '';
 
     // Creamos un nuevo elemento nota dentro del dom
-    const nota = crearNotaDOM();
+    const nota = createNoteElement();
 
     // Agregamos la nueva nota al contenedor de notas
     const contenedorNotas = document.getElementsByClassName('content__notes')[0];
@@ -71,7 +72,4 @@ const agregarNota = (event = event) => {
     contenedorNotas.prepend(nota);
 }
 
-// Le agregamos el evento al botón de agregar nota
-const botonAgregarNota = document.getElementsByClassName('content__add__note')[0];
-
-botonAgregarNota.addEventListener('click', agregarNota);
+export default addDomNote;
