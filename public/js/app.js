@@ -2,7 +2,7 @@ import showInput from "./events/show-note-inf.js";
 import removeTargetNote from "./events/target-note.js";
 
 import addDomNote from "./events/create-note-dom.js";
-import { saveNote, removeNote, saveNoteRealTime } from "./events/save-del-note-dom.js";
+import { saveNote, removeNote } from "./events/save-del-note-dom.js";
 
 // 1. Eventos a los contenedores de las notas
 // Cuando se rendericen todas las notas, les agregaremos los eventos show Input y remove Target Nota
@@ -42,12 +42,3 @@ const btnRemove = document.getElementsByClassName('note__delete')[0];
 // Les asignamos sus respectivos eventos
 btnSave.addEventListener('click', saveNote);
 btnRemove.addEventListener('click', removeNote);
-
-
-// A los textareas les agregamos el evento para que actualicen en tiempo real el contenido de las notas
-// Obtenemos los textareas
-const inputTitle = document.getElementsByClassName('input__title')[0];
-const inputContent = document.getElementsByClassName('input__body')[0];
-
-inputTitle.addEventListener('keyup', saveNoteRealTime);
-inputContent.addEventListener('keyup', saveNoteRealTime);
