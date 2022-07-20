@@ -8,20 +8,26 @@ const targetNote = (elementoSeleccionado) => {
 // FUNCIÓN PARA REMOVER EL TARGET DE UNA NOTA CUANDO OTRA ES SELECCIONADA
 const removeTargetNote = (event = event) => {
 
-    // Obtenemos todas las notas y les quitamos la clase active
-    const notas = document.getElementsByClassName('notes__note');
-
-    for (let i = 0; i < notas.length; i++) {
-        notas.item(i).classList.remove('active');
-    }
-
     let elemento = null;
 
-    if (event.target !== undefined) {
-        elemento = event.target;
-    } else {
+    // Si nosotros enviamos el elemento 
+    if (event.target === undefined) {
         elemento = event;
     }
+
+    // Si un elemento del DOM hizo la llamada
+    if (event.target !== undefined) {
+        // Si el elemento del DOM no es un elemento nota
+        if (!event.target.classList.contains('notes__note')) {
+            return;
+        }
+
+        elemento = event.target;
+    }
+
+    // Obtenemos la nota con la clase active
+    const notaActiva = document.getElementsByClassName('active')[0];
+    if (notaActiva !== undefined) notaActiva.classList.remove('active');
 
     // Hacemos target a la nota actual
     targetNote(elemento);
