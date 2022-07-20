@@ -67,12 +67,21 @@ const removeNote = async() => {
         makeVisible('list');
     }
 
+    // Si la nota no tiene ID, significa que no fue guardada en la DB, por lo tanto no la eliminamos
+    if (activeNoteId === '') {
+        return;
+    }
+
     // La eliminamos de la base de datos
     try{
         await removeNoteDb(activeNoteId);
     } catch(error) {
         console.warn(error);
     }
+}
+
+// Función para guardar la información de una nota en su respectivo textarea temporalmente hasta que la nota sea guardada o eliminada
+const saveNoteInfTemp = async() => {
 }
 
 export {
