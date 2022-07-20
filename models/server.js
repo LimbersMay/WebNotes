@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const moment = require("moment")
 
 const hbs = require('hbs');
 const dbConnection = require('../db/config');
@@ -30,6 +31,8 @@ class Server {
 
         // Iniciar los middlewares
         this.middlewares();
+
+        this.helpers();
 
         // Iniciar las rutas de la aplicación
         this.routes();
@@ -69,6 +72,15 @@ class Server {
         this.app.use(passport.session());
         
         this.app.use(flash());
+    }
+
+    helpers () {
+
+        hbs.registerHelper('formatTime', (date, format) => {
+
+            let mmnt = moment(date);
+            return mmnt.format(format);
+        });
     }
 
     routes() {
