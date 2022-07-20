@@ -1,4 +1,5 @@
 import { saveNoteDb, removeNoteDb } from './api.js';
+import makeVisible from './make-visible.js';
 
 // Función para guardar la nota
 const saveNote = async () => {

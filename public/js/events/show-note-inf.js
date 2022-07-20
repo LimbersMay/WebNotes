@@ -1,3 +1,5 @@
+import makeVisible from './make-visible.js';
+
 // Método para mostrar la información de la tarjeta tarea en la parte de donde está el textarea
 const showInput = (event = event) => {
 
