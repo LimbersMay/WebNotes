@@ -1,15 +1,10 @@
 import { saveNoteDb, removeNoteDb } from './api.js';
 
 // Función para guardar la nota
-const saveNote = async() => {
+const saveNoteRealTime = async() => {
     // Obtenemos el textarea del titulo y del contenido
     const inputTitle = document.getElementsByClassName('input__title')[0];
-
     const inputContent = document.getElementsByClassName('input__body')[0];
-
-    // Obenemos la fecha actual formateada
-    const date = new Date();
-    const dateFormatted = date.toDateString();
 
     // Obtenemos la nota que está activa
     const activeNote = document.getElementsByClassName('active')[0];
@@ -20,6 +15,10 @@ const saveNote = async() => {
 
     // Le ponemos la fecha solo si esta está vacía
     if (activeNote.children.item(2).innerHTML === ''){
+        // Obenemos la fecha actual formateada
+        const date = new Date();
+        const dateFormatted = date.toDateString();
+
         activeNote.children.item(2).innerHTML = dateFormatted;
     }    
 
@@ -27,9 +26,32 @@ const saveNote = async() => {
     if (screen.width < 500) {
         makeVisible('list');
     }
+}
+
+
+// Función para guardar la información de una nota en su contenedor en tiempo real temporalmente hasta que se guarde, se elimine o se recargue la página
+const saveNote = async() => {
+
+    // Obtenemos la nota que está activa
+    const activeNote = document.getElementsByClassName('active')[0];
 
     // Obtenemos el ID del elemento activo
     const idElement = activeNote.id;
+
+    // Obtenemos sus atributos de titulo, contenido y fecha
+    // Obtenemos el textarea del titulo y del contenido
+    const inputTitle = document.getElementsByClassName('input__title')[0];
+    const inputContent = document.getElementsByClassName('input__body')[0];
+
+    // Le ponemos la fecha solo si esta está vacía
+    let dateFormatted = null;
+    if (activeNote.children.item(2).innerHTML === ''){
+        // Obenemos la fecha actual formateada
+        const date = new Date();
+        dateFormatted = date.toDateString();
+
+        activeNote.children.item(2).innerHTML = dateFormatted;
+    } 
 
     // Consumimos la API para guardar la nota
     try {
@@ -80,11 +102,8 @@ const removeNote = async() => {
     }
 }
 
-// Función para guardar la información de una nota en su respectivo textarea temporalmente hasta que la nota sea guardada o eliminada
-const saveNoteInfTemp = async() => {
-}
-
 export {
     saveNote,
-    removeNote
+    removeNote,
+    saveNoteRealTime
 }
