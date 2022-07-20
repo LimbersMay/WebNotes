@@ -1,5 +1,9 @@
 // Método para mostrar la información de la tarjeta tarea en la parte de donde está el textarea
 const showInput = (event = event) => {
+
+    if (!event.target.classList.contains('notes__note')) {
+        return;
+    }
     
     event.preventDefault();
 
