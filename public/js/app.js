@@ -12,14 +12,10 @@ import { saveNote, removeNote } from "./events/save-del-note-dom.js";
     2. Remove target nota: Eliminar el target a la nota para que esta ya no este seleccionada
 */
 
-// Obtenemos todas las notas
-const notes = document.getElementsByClassName('notes__note');
-
-// Les agregamos los eventos a las notas
-for (let i = 0; i < notes.length; i++) {
-    notes.item(i).addEventListener('click', removeTargetNote);
-    notes.item(i).addEventListener('click', showInput);
-}
+// Le asignamos el evento solamente al contenedor, este se lo heredará a todos sus hijos, lo que hará más eficiente el manejo de eventos
+const notesContainer = document.getElementsByClassName('content__notes')[0];
+notesContainer.addEventListener('click', removeTargetNote);
+notesContainer.addEventListener('click', showInput);
 
 // 2. Evento al botón de addNote
 /*
