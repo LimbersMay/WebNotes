@@ -1,6 +1,7 @@
 import { saveNoteDb, removeNoteDb } from './api.js';
 import makeVisible from './make-visible.js';
 import addDomNote from './create-note-dom.js';
+import orderDates from './order-by-date.js';
 
 // Función para guardar la nota
 const saveNote = async () => {
@@ -26,6 +27,9 @@ const saveNote = async () => {
         activeNote = document.getElementsByClassName('active')[0];
     }
 
+    // Ordenamos nuevamente los elementos por fecha
+    orderDates();
+        
     // Establecemos la información a sus hijos (titulo, contenido y fecha)
     activeNote.children.item(0).innerHTML = inputTitle.value;
     activeNote.children.item(1).innerHTML = inputContent.value;
