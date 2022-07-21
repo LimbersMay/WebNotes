@@ -10,7 +10,7 @@ const saveNote = async(req = request, res) => {
     // Creamos un nuevo elemento de Nota
     const { idNote, title, content, dateClient} = req.body; ;
 
-    console.log('DATE FROM THE CLIENT: ', dateISO);
+    console.log('DATE FROM THE CLIENT: ', dateClient);
 
     // Si el Id de la nota no está vacío, quiere decir que debemos actualizar la nota
     if (idNote !== '') {

@@ -3,7 +3,7 @@ const saveNoteDb = (idNote, title, content) => {
     // Enviamos los datos usando fetch 
 
     // Fecha para el servidor
-    let dateClient = new Date().toISOString();
+    let dateClient = new Date().toUTCString();
 
     const body = {
         idNote,
