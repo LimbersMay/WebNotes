@@ -33,8 +33,11 @@ const showInput = (event = event) => {
     // AHORA PONEMOS LA INFORMACIÓN DEL LADO DERECHO
     // Obtenemos el textarea del titulo y del contenido
     const inputTittle = document.getElementsByClassName('input__title')[0];
-
     const inputContent = document.getElementsByClassName('input__body')[0];
+
+    // Le asignamos la última fecha de modificacion 
+    const modifiedAtElement = document.getElementsByClassName('modified__at')[0];
+    modifiedAtElement.innerHTML = `Modified at: ${elemento.getAttribute('modified_at')}`;
 
     // Le asignamos el valor del titulo
     inputTittle.value = titulo;
