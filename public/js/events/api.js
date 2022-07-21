@@ -1,11 +1,12 @@
 // Función para enviar los datos a la base de datos
-const saveNoteDb = (idNote, title, content) => {
+const saveNoteDb = (idNote, title, content, dateServer) => {
     // Enviamos los datos usando fetch 
 
     const body = {
         idNote,
         title,
-        content
+        content,
+        dateServer
     };
 
     return new Promise(async(resolve, reject) => {
