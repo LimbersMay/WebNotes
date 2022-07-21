@@ -297,6 +297,11 @@ footer {
         font-size: 16px;
     }
 
+    .modified__at {
+        font-size: 12px;
+        padding: 20px;
+    }
+
     .note__save,
     .note__delete {
         width: 30%;
