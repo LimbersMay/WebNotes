@@ -5,6 +5,7 @@ const { passport } = require('../config/passport');
 
 const { login, signIn, logOut } = require('../controllers/auth');
 const { existeEmail } = require('../helpers/db-validators');
+const getTimeZone = require('../helpers/get-time-zone');
 const { validatePassword } = require('../middlewares/password-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
 
@@ -14,6 +15,7 @@ router.post('/login', [
     check('username', 'Invalid email').isEmail(),
     check('password', 'Password cannot be empty').not().isEmpty(),
     validarCampos,
+    getTimeZone,
     passport.authenticate('local', {
         successRedirect: '/user/home',   
         failureRedirect: '/user/login',

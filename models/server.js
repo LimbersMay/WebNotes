@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const moment = require("moment")
 
+const momentTz = require("moment-timezone");
+
 const hbs = require('hbs');
 const dbConnection = require('../db/config');
 
@@ -65,7 +67,10 @@ class Server {
         this.app.use(session({
             secret: process.env.SESSION_SECRET,
             resave: false,
-            saveUninitialized: true
+            saveUninitialized: true,
+            cookie: {
+                maxAge: 1000 * 60 * 60 * 24 // 1 day
+            }
         }));
 
         // Configuración de passport
@@ -78,9 +83,9 @@ class Server {
     helpers () {
 
         hbs.registerHelper('formatTime', (date, format) => {
-            
-            let mmnt = moment(date);
-            return mmnt.format(format);
+
+            let momentFormatted = momentTz.tz(process.env.TZCLIENT).format(format);
+            return momentFormatted;
         });
     }
 
