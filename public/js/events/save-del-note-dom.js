@@ -11,6 +11,14 @@ const saveNote = async () => {
     // Obtenemos la nota que está activa
     let activeNote = document.getElementsByClassName('active')[0];
 
+    // Guardamos la fecha de modificación
+    const date = new Date().toLocaleString();
+    const modifiedAtElement = document.getElementsByClassName('modified__at')[0];
+    modifiedAtElement.innerHTML = `Modified at: ${date}`;
+
+    // Le enviamos a la nota activa el atributo de fecha de modificación
+    activeNote.setAttribute('modified_at', date);
+
     // Si no hay ninguna nota activa significa que el usuario acaba de iniciar sesión 
     // En ese caso agregamos una nueva nota al DOM y mostramos el input
     if (activeNote === undefined) {
@@ -23,7 +31,6 @@ const saveNote = async () => {
     activeNote.children.item(1).innerHTML = inputContent.value;
 
     let dateFormatted = null;
-    let date = null;
 
     // Le ponemos la fecha solo si esta está vacía
     if (activeNote.children.item(2).innerHTML === '') {
