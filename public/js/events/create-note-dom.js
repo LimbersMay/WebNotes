@@ -28,12 +28,12 @@ const createNoteElement = () => {
     removeTargetNota(notaDiv);
 
     return notaDiv;
-}   
+}
 
 // Función para agregar una nueva nota 
-const addDomNote = (event = event) => {
+const addDomNote = (event) => {
 
-    event.preventDefault();
+    if (event !== undefined) event.preventDefault();
 
     const contenedorTareas = document.getElementsByClassName('profile__container')[0];
 
@@ -51,12 +51,12 @@ const addDomNote = (event = event) => {
     }
 
     // Le asignamos valores vacios a los textareas
-    const inputTittle = document.getElementsByClassName('input__title')[0];
-
-    const inputContent = document.getElementsByClassName('input__body')[0];
-
-    inputTittle.value = '';
-    inputContent.value = '';
+    if (event !== undefined) {
+        const inputTittle = document.getElementsByClassName('input__title')[0];
+        const inputContent = document.getElementsByClassName('input__body')[0];
+        inputTittle.value = '';
+        inputContent.value = '';
+    }
 
     // Creamos un nuevo elemento nota dentro del dom
     const nota = createNoteElement();
