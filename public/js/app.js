@@ -4,6 +4,8 @@ import removeTargetNote from "./events/target-note.js";
 import addDomNote from "./events/create-note-dom.js";
 import { saveNote, removeNote } from "./events/save-del-note-dom.js";
 
+import orderDates from "./events/order-by-date.js";
+
 // 1. Eventos a los contenedores de las notas
 // Cuando se rendericen todas las notas, les agregaremos los eventos show Input y remove Target Nota
 
@@ -38,3 +40,5 @@ const btnRemove = document.getElementsByClassName('note__delete')[0];
 // Les asignamos sus respectivos eventos
 btnSave.addEventListener('click', saveNote);
 btnRemove.addEventListener('click', removeNote);
+
+orderDates();

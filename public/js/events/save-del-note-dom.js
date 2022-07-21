@@ -23,12 +23,12 @@ const saveNote = async () => {
     activeNote.children.item(1).innerHTML = inputContent.value;
 
     let dateFormatted = null;
+    let date = null;
 
     // Le ponemos la fecha solo si esta está vacía
     if (activeNote.children.item(2).innerHTML === '') {
         // Obenemos la fecha actual formateada
-        const date = new Date();
-        dateFormatted = date.toDateString();
+        dateFormatted = new Date().toLocaleDateString();
 
         activeNote.children.item(2).innerHTML = dateFormatted;
     }
@@ -44,7 +44,7 @@ const saveNote = async () => {
     // Consumimos la API para guardar la nota
     try {
         // Resolvemos la promesa
-        const id = await saveNoteDb(idElement, inputTitle.value, inputContent.value, dateFormatted);
+        const id = await saveNoteDb(idElement, inputTitle.value, inputContent.value);
 
         // Le agregamos a la nota activa su ID
         activeNote.setAttribute('id', id);
