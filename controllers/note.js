@@ -12,6 +12,8 @@ const saveNote = async(req = request, res) => {
 
     const dateISO = dateServer;
 
+    console.log(dateServer);
+
     // Si el Id de la nota no está vacío, quiere decir que debemos actualizar la nota
     if (idNote !== '') {
 
