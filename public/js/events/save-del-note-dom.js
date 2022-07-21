@@ -26,9 +26,6 @@ const saveNote = async () => {
         addDomNote();
         activeNote = document.getElementsByClassName('active')[0];
     }
-
-    // Ordenamos nuevamente los elementos por fecha
-    orderDates();
         
     // Establecemos la información a sus hijos (titulo, contenido y fecha)
     activeNote.children.item(0).innerHTML = inputTitle.value;
@@ -52,6 +49,9 @@ const saveNote = async () => {
     // Obtenemos el ID del elemento activo
     const idElement = activeNote.id;
 
+    // Ordenamos los elementos por fecha
+    if (idElement !== '') orderDates();
+
     // Consumimos la API para guardar la nota
     try {
         // Resolvemos la promesa
@@ -59,7 +59,7 @@ const saveNote = async () => {
 
         // Le agregamos a la nota activa su ID
         activeNote.setAttribute('id', id);
-
+        
     } catch (errors) {
         // location.reload();
         console.error(errors);
