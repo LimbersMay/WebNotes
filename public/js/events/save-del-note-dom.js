@@ -2,6 +2,7 @@ import { saveNoteDb, removeNoteDb } from './api.js';
 import makeVisible from './make-visible.js';
 import addDomNote from './create-note-dom.js';
 import orderDates from './order-by-date.js';
+import formatDate from '../helpers.js';
 
 // Función para guardar la nota
 const saveNote = async () => {
@@ -13,7 +14,11 @@ const saveNote = async () => {
     let activeNote = document.getElementsByClassName('active')[0];
 
     // Guardamos la fecha de modificación
-    const date = new Date().toLocaleString();
+    const date = new Date();
+
+    // Formateamos la fecha con el siguiente formato: July 21, 2022 5:25 PM
+    const formatDate = formatDate(date);
+
     const modifiedAtElement = document.getElementsByClassName('modified__at')[0];
     modifiedAtElement.innerHTML = `Modified at: ${date}`;
 
