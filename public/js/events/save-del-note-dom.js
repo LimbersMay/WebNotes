@@ -1,5 +1,6 @@
 import { saveNoteDb, removeNoteDb } from './api.js';
 import makeVisible from './make-visible.js';
+import addDomNote from './create-note-dom.js';
 
 // Función para guardar la nota
 const saveNote = async () => {
@@ -8,7 +9,14 @@ const saveNote = async () => {
     const inputContent = document.getElementsByClassName('input__body')[0];
 
     // Obtenemos la nota que está activa
-    const activeNote = document.getElementsByClassName('active')[0];
+    let activeNote = document.getElementsByClassName('active')[0];
+
+    // Si no hay ninguna nota activa significa que el usuario acaba de iniciar sesión 
+    // En ese caso agregamos una nueva nota al DOM y mostramos el input
+    if (activeNote === undefined) {
+        addDomNote();
+        activeNote = document.getElementsByClassName('active')[0];
+    }
 
     // Establecemos la información a sus hijos (titulo, contenido y fecha)
     activeNote.children.item(0).innerHTML = inputTitle.value;
