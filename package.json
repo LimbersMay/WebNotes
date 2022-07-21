@@ -32,6 +32,7 @@
     "hbs": "^4.2.0",
     "livereload": "^0.9.3",
     "moment": "^2.29.4",
+    "moment-timezone": "^0.5.34",
     "mongoose": "^6.4.4",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
