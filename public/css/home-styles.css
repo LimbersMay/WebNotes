@@ -103,7 +103,6 @@ form.content__form input[type="text"] {
     color: white;
 
     height: calc(100% - 100px);
-
     overflow-y: auto;
 }
 
