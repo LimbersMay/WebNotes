@@ -19,6 +19,9 @@ const createNoteElement = () => {
     const fechaDiv = document.createElement('p');
     fechaDiv.className = 'note__date';
 
+    // Le asignamos el atributo de fecha de modificacion 
+    notaDiv.setAttribute('modified_at', ' ');
+
     // Le agregamos al contenedor el titulo, el contenido y la fecha
     notaDiv.appendChild(tituloDiv);
     notaDiv.appendChild(contenidoDiv);
@@ -54,8 +57,11 @@ const addDomNote = (event) => {
     if (event !== undefined) {
         const inputTittle = document.getElementsByClassName('input__title')[0];
         const inputContent = document.getElementsByClassName('input__body')[0];
+        const modifietAtElement = document.getElementsByClassName('modified__at')[0];
+
         inputTittle.value = '';
         inputContent.value = '';
+        modifietAtElement.innerHTML = '';
     }
 
     // Creamos un nuevo elemento nota dentro del dom
