@@ -1,6 +1,9 @@
 // Función para enviar los datos a la base de datos
-const saveNoteDb = (idNote, title, content, dateClient) => {
+const saveNoteDb = (idNote, title, content) => {
     // Enviamos los datos usando fetch 
+
+    // Fecha para el servidor
+    let dateClient = new Date().toISOString();
 
     const body = {
         idNote,
