@@ -231,6 +231,12 @@ form.content__form input[type="text"] {
     font-size: 18px;
 }
 
+.modified__at {
+    color: rgb(185, 185, 185);
+    font-size: 15px;
+    text-align: right;
+}
+
 .note__save,
 .note__delete {
     border-style: none;
