@@ -25,6 +25,7 @@ class Server {
         this.authPath = '/api/auth/';
         this.userPath = '/user';
         this.notePath = '/api/note';
+        this.homePath = '/';
         
         // Conectar la base de datos
         this.connectDB();
@@ -51,7 +52,7 @@ class Server {
         this.app.use(express.json());
 
         // Public directory 
-        this.app.use(express.static('public'));
+        this.app.use(express.static('public', {index: false}));
 
         this.app.use(express.urlencoded({
             extended: true
@@ -84,6 +85,7 @@ class Server {
     }
 
     routes() {
+        this.app.use(this.homePath, require('../routes/home'));
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/user'));
         this.app.use(this.notePath, require('../routes/note'));
