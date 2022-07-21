@@ -3,7 +3,7 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 const { passport } = require('../config/passport');
 
-const { login, signIn } = require('../controllers/auth');
+const { login, signIn, logOut } = require('../controllers/auth');
 const { existeEmail } = require('../helpers/db-validators');
 const { validatePassword } = require('../middlewares/password-validator');
 const { validarCampos } = require('../middlewares/validar-campos');
@@ -29,5 +29,7 @@ router.post('/signin', [
     check('password', 'The maximun password length is 8').isLength({min: 8}),
     validarCampos
 ], signIn);
+
+router.post('/logout', logOut);
 
 module.exports = router;
