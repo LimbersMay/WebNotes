@@ -18,6 +18,11 @@ router.post('/login', [
         successRedirect: '/user/home',   
         failureRedirect: '/user/login',
         failureFlash: true
+    }, (req, res) => {
+        res.redirect('/user/home');
+        const { timezone } = req.body;
+        console.log(timezone);
+        console.log(req.body);
     })
 ]);
 

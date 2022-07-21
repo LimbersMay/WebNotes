@@ -2,8 +2,6 @@ const express = require('express');
 const cors = require('cors');
 const moment = require("moment")
 
-const moment_tz = require("moment-timezone");
-
 const hbs = require('hbs');
 const dbConnection = require('../db/config');
 
@@ -80,10 +78,9 @@ class Server {
     helpers () {
 
         hbs.registerHelper('formatTime', (date, format) => {
-
-            const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-            let formatted = moment_tz.tz(date, timeZone).format(format);
-            return formatted;
+            
+            let mmnt = moment(date);
+            return mmnt.format(format);
         });
     }
 
