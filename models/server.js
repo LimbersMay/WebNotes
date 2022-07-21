@@ -84,7 +84,7 @@ class Server {
 
         hbs.registerHelper('formatTime', (date, format) => {
 
-            let momentFormatted = momentTz.tz(process.env.TZCLIENT).format(format);
+            let momentFormatted = momentTz(date).tz(process.env.TZCLIENT).format(format);
             return momentFormatted;
         });
     }
