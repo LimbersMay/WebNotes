@@ -17,10 +17,10 @@ const saveNote = async () => {
     const date = new Date();
 
     // Formateamos la fecha con el siguiente formato: July 21, 2022 5:25 PM
-    const formatDate = formatDate(date);
+    const formattedDate = formatDate(date);
 
     const modifiedAtElement = document.getElementsByClassName('modified__at')[0];
-    modifiedAtElement.innerHTML = `Modified at: ${date}`;
+    modifiedAtElement.innerHTML = `Modified at: ${formattedDate}`;
 
     // Le enviamos a la nota activa el atributo de fecha de modificación
     activeNote.setAttribute('modified_at', date);
