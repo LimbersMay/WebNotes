@@ -40,12 +40,24 @@ img {
     align-self: center;
 }
 
-.log__out {
-    align-self: center;
+.form__log__out {
     margin-left: auto;
+    display: flex;
+    align-content: center;
+}
+
+.log__out {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
     padding: 15px;
-    text-decoration: none;
+    font-size: 16px;
+    margin-left: auto;
     color: white;
+}
+
+.log__out:hover {
+    color: rgb(221, 221, 221); 
 }
 
 .container {
