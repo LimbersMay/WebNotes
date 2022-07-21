@@ -37,7 +37,7 @@ const saveNote = async () => {
     if (activeNote.children.item(2).innerHTML === '') {
         // Obenemos la fecha actual formateada
         // Fecha para el cliente
-        dateFormatted = new Date().toLocaleString();
+        dateFormatted = new Date().toLocaleDateString();
 
         activeNote.children.item(2).innerHTML = dateFormatted;
     }
