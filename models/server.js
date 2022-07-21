@@ -58,7 +58,7 @@ class Server {
         }));
 
         // Cookie parser
-        this.app.use(cookieParser(process.env.COOKIESECRET));
+        this.app.use(cookieParser(process.env.COOKIE_SECRET));
 
         // Session para el manejo de sesiones
         this.app.use(session({
