@@ -18,7 +18,12 @@ const signin = (req, res) => {
 }
 
 const home = (req, res) => {
-    res.render('home')
+
+    const { notes } = req.user;
+
+    res.render('home', {
+        nota: notes
+    });
 }
 
 module.exports = {

@@ -16,9 +16,10 @@ const userSchema = Schema({
         required: [true, 'El password es requerido']
     },
     notes: [{
-        tituloNota: String,
-        contenido: String,
-        fecha: Date
+        id: String,
+        title: String,
+        content: String,
+        date: Date
     }]
 });
 

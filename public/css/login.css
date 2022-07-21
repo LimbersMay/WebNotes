@@ -127,10 +127,15 @@ a {
     #logo {
         width: 100%;
         flex-grow: 1;
+
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
     }
 
     .form__container {
         width: 100%;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
     }
 
     .input {

@@ -40,62 +40,41 @@
 
 
             <div class="content__notes">
+
+                <!-- Template de las notas 
+                <div class="notes__note">
+
+                    <div class="notes__note">
+
+                    <h3 class="note__title">Instalación de arch</h3>
+
+                    <p class="note__content">Para la instalación de arch se necesitan</p>
+
+                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
+
+                </div>
+                -->
                 
-                <div class="notes__note">
+                {{#each nota}}
+                    
+                    <div id="{{_id}}" class="notes__note">
 
-                    <h3 class="note__title">Instalación de arch</h3>
+                        <h3 class="note__title">{{title}}</h3>
 
-                    <p class="note__content">Para la instalación de arch se necesitan</p>
+                        <p class="note__content">{{content}}</p>
 
-                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
+                        <p class="note__date">{{formatTime date "LL"}}</p>
 
-                </div>
-
-                <div class="notes__note">
-
-                    <h3 class="note__title">Solucion de carga infinita en Docker</h3>
-
-                    <p class="note__content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam voluptas magnam officiis dolore impedit. Voluptatum quibusdam laborum tenetur veritatis perspiciatis omnis eius, debitis dolore. Distinctio ipsum ratione soluta earum hic.</p>
-
-                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
-
-                </div>
-
-                <div class="notes__note">
-
-                    <h3 class="note__title">Desinstalar programa en Arch</h3>
-
-                    <p class="note__content">Para la instalación de arch se necesitan</p>
-
-                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
-
-                </div>
-
-                <div class="notes__note">
-
-                    <h3 class="note__title">Instalación de arch</h3>
-
-                    <p class="note__content">Para la instalación de arch se necesitan</p>
-
-                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
-
-                </div>
-
-                <div class="notes__note">
-
-                    <h3 class="note__title">Instalación de arch</h3>
-
-                    <p class="note__content">Para la instalación de arch se necesitan</p>
-
-                    <p class="note__date">Thursday, 8 July 2022 at 22:53</p>
-
-                </div>
+                    </div>
+       
+                {{/each}}
+                
             </div>
         </div>
 
         <div class="notes__content__container">
 
-            <textarea class="input__title" cols="39" rows="1" placeholder="Tittle"></textarea>
+            <textarea class="input__title" cols="39" rows="1" placeholder="Title"></textarea>
 
             <textarea class="input__body" cols="30" rows="15" placeholder="Input your text here"></textarea>
 
@@ -108,10 +87,7 @@
 
     </footer>
 
-    <script  type="module" src="/js/mostrar-notas.js"></script>
-    <script type="module" src="/js/agregar-nota.js"></script>
-
-    <script type="module" src="/js/guardar-nota.js"></script>
+    <script type="module" src="/js/app.js"></script>
 </body>
 
 </html>

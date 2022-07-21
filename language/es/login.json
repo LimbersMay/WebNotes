@@ -1,0 +1,10 @@
+{
+    "title": "WebNotes",
+    "subtitle": "Bienvenido a WebNotes",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "forgot_password": "¿Olvidó su contraseña?",
+    "login": "Iniciar sesión",
+    "new_user": "¿Nuevo usuario?",
+    "register": "Crear cuenta"
+}

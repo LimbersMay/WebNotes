@@ -1,5 +1,4 @@
 // MÉTODO PARA HACER VISIBLE EL INPUT O LA LISTA DE TODAS LAS NOTAS
-
 const makeVisible = (content) => {
 
     // Contenedor de las tareas 
@@ -23,4 +22,4 @@ const makeVisible = (content) => {
     }
 }
 
-export { makeVisible };
+export default makeVisible;
