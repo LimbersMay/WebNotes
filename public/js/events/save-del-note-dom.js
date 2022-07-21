@@ -2,7 +2,7 @@ import { saveNoteDb, removeNoteDb } from './api.js';
 import makeVisible from './make-visible.js';
 import addDomNote from './create-note-dom.js';
 import orderDates from './order-by-date.js';
-import moment from 'moment';
+import moment from 'moment.js';
 
 // Función para guardar la nota
 const saveNote = async () => {
