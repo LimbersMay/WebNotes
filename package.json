@@ -4,7 +4,8 @@
   "description": "Website where you can save all your notes and search them, you can log in or register with Google or Facebook",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
