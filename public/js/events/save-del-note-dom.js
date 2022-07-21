@@ -33,9 +33,6 @@ const saveNote = async () => {
 
     let dateFormatted = null;
 
-    // Fecha para el servidor
-    let dateServer = new Date().toISOString();
-
     // Le ponemos la fecha solo si esta está vacía
     if (activeNote.children.item(2).innerHTML === '') {
         // Obenemos la fecha actual formateada
@@ -59,7 +56,7 @@ const saveNote = async () => {
     // Consumimos la API para guardar la nota
     try {
         // Resolvemos la promesa
-        const id = await saveNoteDb(idElement, inputTitle.value, inputContent.value, dateServer);
+        const id = await saveNoteDb(idElement, inputTitle.value, inputContent.value);
 
         // Le agregamos a la nota activa su ID
         activeNote.setAttribute('id', id);
