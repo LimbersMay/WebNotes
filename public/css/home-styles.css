@@ -24,7 +24,6 @@
 header {
     background-color: var(--header-back);
     color: white;
-    background-color: #069A8E;
     width: 100%;
     height: 50px;
     display: flex;
