@@ -2,7 +2,6 @@ import { saveNoteDb, removeNoteDb } from './api.js';
 import makeVisible from './make-visible.js';
 import addDomNote from './create-note-dom.js';
 import orderDates from './order-by-date.js';
-import moment from 'moment.js';
 
 // Función para guardar la nota
 const saveNote = async () => {
@@ -14,7 +13,7 @@ const saveNote = async () => {
     let activeNote = document.getElementsByClassName('active')[0];
 
     // Guardamos la fecha de modificación
-    const date = moment().format('LLL');
+    const date = new Date().toLocaleString();
     const modifiedAtElement = document.getElementsByClassName('modified__at')[0];
     modifiedAtElement.innerHTML = `Modified at: ${date}`;
 
@@ -38,7 +37,8 @@ const saveNote = async () => {
     if (activeNote.children.item(2).innerHTML === '') {
         // Obenemos la fecha actual formateada
         // Fecha para el cliente
-        dateFormatted = moment().format('LLL');
+        dateFormatted = new Date().toLocaleDateString();
+
         activeNote.children.item(2).innerHTML = dateFormatted;
     }
 
