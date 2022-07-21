@@ -8,7 +8,9 @@ const saveNote = async(req = request, res) => {
     const { _id } = req.user;
 
     // Creamos un nuevo elemento de Nota
-    const { idNote, title, content, date } = req.body; 
+    const { idNote, title, content } = req.body; 
+
+    const dateISO = new Date().toISOString();
 
     // Si el Id de la nota no está vacío, quiere decir que debemos actualizar la nota
     if (idNote !== '') {
@@ -24,7 +26,8 @@ const saveNote = async(req = request, res) => {
             {
                 "$set": { 
                     "notes.$.title": title,
-                    "notes.$.content": content
+                    "notes.$.content": content,
+                    "notes.$.modified_at": dateISO
                 }
             }
         )
@@ -36,10 +39,12 @@ const saveNote = async(req = request, res) => {
 
     // En caso de que la nota sea nueva 
     // Agregamos la nota en el arreglo de notas del usuario
+
     const note = {
         title,
         content,
-        date
+        date: dateISO,
+        modified_at: dateISO
     }
 
     const user = await User.findOneAndUpdate(
