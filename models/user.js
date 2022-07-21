@@ -19,7 +19,8 @@ const userSchema = Schema({
         id: String,
         title: String,
         content: String,
-        date: Date
+        date: Date,
+        modified_at: Date
     }]
 });
 
