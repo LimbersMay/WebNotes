@@ -34,7 +34,7 @@ const saveNote = async () => {
     let dateFormatted = null;
 
     // Fecha para el servidor
-    let dateServer = new Date().toISOString();
+    let dateServer = new Date().toLocaleDateString();
 
     // Le ponemos la fecha solo si esta está vacía
     if (activeNote.children.item(2).innerHTML === '') {
