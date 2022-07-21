@@ -9,7 +9,14 @@ fechaInput.value = zonaActual;
 // Formateamos la fecha actual
 const formatDate = (date) => {
 
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    // Saber si el idioma es español
+    const es = Intl.DateTimeFormat().resolvedOptions().locale.includes('es');
+
+    let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+    if (es) {
+        months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    }
 
     let dateFormatted = months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear() + " " + (date.getHours() % 12 || 12) + ":";
 
