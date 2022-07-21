@@ -57,7 +57,7 @@
                 
                 {{#each nota}}
                     
-                    <div id="{{_id}}" class="notes__note">
+                    <div id="{{_id}}" class="notes__note" modified_at="{{formatTime modified_at 'LLL'}}">
 
                         <h3 class="note__title">{{title}}</h3>
 
@@ -77,6 +77,8 @@
             <textarea class="input__title" cols="39" rows="1" placeholder="Title"></textarea>
 
             <textarea class="input__body" cols="30" rows="15" placeholder="Input your text here"></textarea>
+
+            <p class="modified__at"></p>
 
             <button class="note__save">Save</button>
             <button class="note__delete">Delete</button>
