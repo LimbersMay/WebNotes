@@ -24,6 +24,7 @@
 header {
     background-color: var(--header-back);
     color: white;
+    background-color: #069A8E;
     width: 100%;
     height: 50px;
     display: flex;
@@ -38,6 +39,14 @@ img {
 
 .header__title {
     align-self: center;
+}
+
+.log__out {
+    align-self: center;
+    margin-left: auto;
+    padding: 15px;
+    text-decoration: none;
+    color: white;
 }
 
 .container {
