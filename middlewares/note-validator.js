@@ -6,7 +6,7 @@ const estaAutenticado = (req, res, next) => {
     return res.redirect('/user/login');
 }
 
-const validarNota = (req, res, next) => {
+const validarErrores = (req, res, next) => {
     const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
@@ -20,5 +20,5 @@ const validarNota = (req, res, next) => {
 
 module.exports = {
     estaAutenticado,
-    validarNota
+    validarErrores
 }
