@@ -14,7 +14,7 @@ const saveNoteDb = (idNote, title, content) => {
 
     return new Promise(async(resolve, reject) => {
 
-        const bodyResponse = await fetch('http://localhost:8080/api/note/saveNote', {
+        const bodyResponse = await fetch('https://webnoteseasy.herokuapp.com/api/note/saveNote', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
