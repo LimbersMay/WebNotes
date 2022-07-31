@@ -1,3 +1,4 @@
+import { getNoteInformation } from "./get-note-inf.js";
 import removeTargetNota from "./target-note.js";
 
 // FUNCIÓN PARA CREAR UNA NUEVA NOTA DENTRO DEL DOM
@@ -21,6 +22,8 @@ const createNoteElement = () => {
 
     // Le asignamos el atributo de fecha de modificacion 
     notaDiv.setAttribute('modified_at', ' ');
+
+    notaDiv.setAttribute('id', '');
 
     // Le agregamos al contenedor el titulo, el contenido y la fecha
     notaDiv.appendChild(tituloDiv);
@@ -55,13 +58,11 @@ const addDomNote = (event) => {
 
     // Le asignamos valores vacios a los textareas
     if (event !== undefined) {
-        const inputTittle = document.getElementsByClassName('input__title')[0];
-        const inputContent = document.getElementsByClassName('input__body')[0];
-        const modifietAtElement = document.getElementsByClassName('modified__at')[0];
+        const { inputTitle, inputContent, modifiedAtElement  } = getNoteInformation();
 
-        inputTittle.value = '';
+        inputTitle.value = '';
         inputContent.value = '';
-        modifietAtElement.innerHTML = '';
+        modifiedAtElement.innerHTML = '';
     }
 
     // Creamos un nuevo elemento nota dentro del dom
