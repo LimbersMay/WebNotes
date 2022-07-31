@@ -10,7 +10,5 @@ export const renderizarElementos = ( notes, container ) => {
     notes.forEach(note => {
         note.style.display = 'block';
     })
-
-    console.log(notes);
 }
 

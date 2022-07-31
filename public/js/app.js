@@ -40,8 +40,6 @@ addNoteButton.addEventListener('click', addDomNote);
 const searchInput = document.getElementsByClassName('input__search')[0];
 searchInput.addEventListener("input", search);
 
-console.log(searchInput);
-
 // Obtenemos los botones del DOM
 const btnSave = document.getElementsByClassName('note__save')[0];
 const btnRemove = document.getElementsByClassName('note__delete')[0];
