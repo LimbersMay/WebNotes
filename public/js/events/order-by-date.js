@@ -4,7 +4,7 @@
     { elemento: date }
 */
 
-const orderDates = () => {
+const orderNotesByDate = () => {
 
     // Obtenemos todos los elementos de nota del DOM
     const dateElements = document.getElementsByClassName('notes__note');
@@ -37,4 +37,4 @@ const orderDates = () => {
 }
 
 
-export default orderDates;
+export default orderNotesByDate;

@@ -1,26 +1,33 @@
 import { saveNoteDb, removeNoteDb } from './api.js';
+
 import makeVisible from './make-visible.js';
 import addDomNote from './create-note-dom.js';
-import orderDates from './order-by-date.js';
+import orderNotesByDate from './order-by-date.js';
+
 import formatDate from '../helpers.js';
+import { getNoteInformation } from './get-note-inf.js';
 
-// Función para guardar la nota
-const saveNote = async () => {
-    // Obtenemos el textarea del titulo y del contenido
-    const inputTitle = document.getElementsByClassName('input__title')[0];
-    const inputContent = document.getElementsByClassName('input__body')[0];
+const showNoteInfInCard = ( activeNote ) => {
 
-    // Obtenemos la nota que está activa
-    let activeNote = document.getElementsByClassName('active')[0];
+    // Obtenemos todos los textareas
+    const { inputTitle, inputContent, modifiedAtElement } = getNoteInformation();
 
     // Guardamos la fecha de modificación
     const date = new Date();
 
     // Formateamos la fecha con el siguiente formato: July 21, 2022 5:25 PM
     const formattedDate = formatDate(date);
-
-    const modifiedAtElement = document.getElementsByClassName('modified__at')[0];
     modifiedAtElement.innerHTML = `Modified at: ${formattedDate}`;
+    
+    // Si no hay ninguna nota activa significa que el usuario acaba de iniciar sesión 
+    // En ese caso agregamos una nueva nota al DOM y mostramos el input
+    if (activeNote === undefined) {
+        addDomNote();
+        activeNote = document.getElementsByClassName('active')[0];
+    }
+
+    // Le enviamos a la nota activa el atributo de fecha de modificación
+    activeNote.setAttribute('modified_at', date);
 
     // Le enviamos a la nota activa el atributo de fecha de modificación
     activeNote.setAttribute('modified_at', date);
@@ -43,20 +50,29 @@ const saveNote = async () => {
         // Obenemos la fecha actual formateada
         // Fecha para el cliente
         dateFormatted = new Date().toLocaleDateString();
-
         activeNote.children.item(2).innerHTML = dateFormatted;
     }
 
-    // Ocultamos el input si estamos en una resolución menor a 500
+    // Al guardar una nota, se ocultan los textareas y se muestra el listado de nuevo al guardar si se ve desde un teléfono 
     if (screen.width < 500) {
         makeVisible('list');
     }
+}
+
+// Función para guardar la nota
+const saveNote = async () => {
+
+    const { inputTitle, inputContent } = getNoteInformation();
+    const activeNote = document.getElementsByClassName('active')[0];
+
+    showNoteInfInCard( activeNote );
 
     // Obtenemos el ID del elemento activo
     const idElement = activeNote.id;
 
     // Ordenamos los elementos por fecha
-    if (idElement !== '') orderDates();
+
+    if (idElement !== '') orderNotesByDate();
 
     // Consumimos la API para guardar la nota
     try {
@@ -83,8 +99,7 @@ const removeNote = async () => {
     activeNote.remove();
 
     // Limpiamos los textarea
-    const inputTitle = document.getElementsByClassName('input__title')[0];
-    const inputContent = document.getElementsByClassName('input__body')[0];
+    const { inputTitle, inputContent } = getNoteInformation();
 
     inputTitle.value = '';
     inputContent.value = '';

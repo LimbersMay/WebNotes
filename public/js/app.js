@@ -6,6 +6,9 @@ import { saveNote, removeNote } from "./events/save-del-note-dom.js";
 
 import orderDates from "./events/order-by-date.js";
 
+import { search } from "./search/search.js";
+
+
 // 1. Eventos a los contenedores de las notas
 // Cuando se rendericen todas las notas, les agregaremos los eventos show Input y remove Target Nota
 
@@ -32,6 +35,12 @@ addNoteButton.addEventListener('click', addDomNote);
 
     2. RemoveNote: Elimina el elemento existente del DOM y consume la API para eliminar la nota en la DB
 */
+
+// Asignamos al buscdor su evento para buscar contenido 
+const searchInput = document.getElementsByClassName('input__search')[0];
+searchInput.addEventListener("input", search);
+
+console.log(searchInput);
 
 // Obtenemos los botones del DOM
 const btnSave = document.getElementsByClassName('note__save')[0];

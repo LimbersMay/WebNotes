@@ -1,3 +1,4 @@
+import { getNoteInformation } from './get-note-inf.js';
 import makeVisible from './make-visible.js';
 
 // Método para mostrar la información de la tarjeta tarea en la parte de donde está el textarea
@@ -32,15 +33,16 @@ const showInput = (event = event) => {
 
     // AHORA PONEMOS LA INFORMACIÓN DEL LADO DERECHO
     // Obtenemos el textarea del titulo y del contenido
-    const inputTittle = document.getElementsByClassName('input__title')[0];
-    const inputContent = document.getElementsByClassName('input__body')[0];
+    const { inputTitle, inputContent, modifiedAtElement } = getNoteInformation();
+
+    modifiedAtElement.innerHTML = `Modified at: ${elemento.getAttribute('modified_at')}`;
 
     // Le asignamos la última fecha de modificacion 
     const modifiedAtElement = document.getElementsByClassName('modified__at')[0];
     modifiedAtElement.innerHTML = `Modified at: ${elemento.getAttribute('modified_at')}`;
 
     // Le asignamos el valor del titulo
-    inputTittle.value = titulo;
+    inputTitle.value = titulo;
 
     // Le asignamos el valor del contenido
     inputContent.value = contenido;

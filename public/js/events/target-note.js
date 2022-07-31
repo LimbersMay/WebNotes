@@ -1,6 +1,5 @@
 // FUNCION PARA TARGETEAR LA NOTA QUE HA SIDO SELECCIONADA
 const targetNote = (elementoSeleccionado) => {
-
     // Le asignamos la clase active
     elementoSeleccionado.classList.add('active');
 } 
