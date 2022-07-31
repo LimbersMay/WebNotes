@@ -3,8 +3,8 @@ import { saveNoteDb, removeNoteDb } from './api.js';
 import makeVisible from './make-visible.js';
 import addDomNote from './create-note-dom.js';
 import orderNotesByDate from './order-by-date.js';
-import formatDate from '../helpers.js';
 
+import formatDate from '../helpers.js';
 import { getNoteInformation } from './get-note-inf.js';
 
 const showNoteInfInCard = ( activeNote ) => {
@@ -29,6 +29,16 @@ const showNoteInfInCard = ( activeNote ) => {
     // Le enviamos a la nota activa el atributo de fecha de modificación
     activeNote.setAttribute('modified_at', date);
 
+    // Le enviamos a la nota activa el atributo de fecha de modificación
+    activeNote.setAttribute('modified_at', date);
+
+    // Si no hay ninguna nota activa significa que el usuario acaba de iniciar sesión 
+    // En ese caso agregamos una nueva nota al DOM y mostramos el input
+    if (activeNote === undefined) {
+        addDomNote();
+        activeNote = document.getElementsByClassName('active')[0];
+    }
+        
     // Establecemos la información a sus hijos (titulo, contenido y fecha)
     activeNote.children.item(0).innerHTML = inputTitle.value;
     activeNote.children.item(1).innerHTML = inputContent.value;
@@ -61,6 +71,7 @@ const saveNote = async () => {
     const idElement = activeNote.id;
 
     // Ordenamos los elementos por fecha
+
     if (idElement !== '') orderNotesByDate();
 
     // Consumimos la API para guardar la nota
@@ -70,7 +81,7 @@ const saveNote = async () => {
 
         // Le agregamos a la nota activa su ID
         activeNote.setAttribute('id', id);
-
+        
     } catch (errors) {
         // location.reload();
         console.error(errors);

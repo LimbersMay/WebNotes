@@ -22,7 +22,6 @@ const createNoteElement = () => {
 
     // Le asignamos el atributo de fecha de modificacion 
     notaDiv.setAttribute('modified_at', ' ');
-
     notaDiv.setAttribute('id', '');
 
     // Le agregamos al contenedor el titulo, el contenido y la fecha
@@ -63,6 +62,7 @@ const addDomNote = (event) => {
         inputTitle.value = '';
         inputContent.value = '';
         modifiedAtElement.innerHTML = '';
+
     }
 
     // Creamos un nuevo elemento nota dentro del dom

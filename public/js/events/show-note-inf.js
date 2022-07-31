@@ -37,6 +37,10 @@ const showInput = (event = event) => {
 
     modifiedAtElement.innerHTML = `Modified at: ${elemento.getAttribute('modified_at')}`;
 
+    // Le asignamos la última fecha de modificacion 
+    const modifiedAtElement = document.getElementsByClassName('modified__at')[0];
+    modifiedAtElement.innerHTML = `Modified at: ${elemento.getAttribute('modified_at')}`;
+
     // Le asignamos el valor del titulo
     inputTitle.value = titulo;
 

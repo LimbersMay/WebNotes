@@ -5,7 +5,9 @@ import addDomNote from "./events/create-note-dom.js";
 import { saveNote, removeNote } from "./events/save-del-note-dom.js";
 
 import orderDates from "./events/order-by-date.js";
+
 import { search } from "./search/search.js";
+
 
 // 1. Eventos a los contenedores de las notas
 // Cuando se rendericen todas las notas, les agregaremos los eventos show Input y remove Target Nota
