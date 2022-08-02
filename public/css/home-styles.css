@@ -21,6 +21,11 @@
     --footer-back: #222831;
 }
 
+body {
+    height: 100vh;
+    width: 100vw;
+}
+
 header {
     background-color: var(--header-back);
     color: white;
@@ -71,7 +76,6 @@ img {
     height: calc(100% - 75px);
     background-color: rgb(104, 104, 104);
 
-    margin-top: 50px;
     margin: 0 auto;
 
     display: flex;
@@ -82,7 +86,7 @@ img {
 .profile__container {
     width: 25%;
     color: white;
-    height: 100%px;
+    height: 100%;
     background-color: var(--profile-back);
     text-align: center;
 

@@ -54,3 +54,9 @@
         visibility: visible;
     }
 }
+
+@media screen and (max-height:819px) {
+    body {
+        background-color: brown;
+    }
+}
