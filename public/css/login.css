@@ -113,32 +113,3 @@ a {
     gap: 5px;
     justify-content: center;
 }
-
-/* Responsivo */
-@media screen and (max-width:749px) {
-    #container {
-        width: 100%;
-        flex-direction: column;
-        position: static;
-        transform: none;
-        align-items: center;
-    }
-
-    #logo {
-        width: 100%;
-        flex-grow: 1;
-
-        border-top-left-radius: 0px;
-        border-bottom-left-radius: 0px;
-    }
-
-    .form__container {
-        width: 100%;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
-    }
-
-    .input {
-        width: 75%;
-    }
-}

@@ -68,7 +68,7 @@ img {
 
 .container {
     width: 100%;
-    height: 565px;
+    height: calc(100% - 75px);
     background-color: rgb(104, 104, 104);
 
     margin-top: 50px;
