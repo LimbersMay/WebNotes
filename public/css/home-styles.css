@@ -19,6 +19,7 @@
     --notes-cont-back: white;
     --note-back: #222831;
     --footer-back: #222831;
+    box-sizing: border-box;
 }
 
 body {
