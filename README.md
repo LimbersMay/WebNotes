@@ -3,17 +3,17 @@ Website where you can save all your notes and search them, you can log in or reg
 
 execute: npm install 
 
-##Login
+## Login
 ![image](https://user-images.githubusercontent.com/66845300/181578107-5ab77810-f1b0-45dc-aadd-5aaac35d5044.png)
 
-##Interfaz
+## Interfaz
 ![image](https://user-images.githubusercontent.com/66845300/181577952-5558a481-d733-4916-9e87-1cc5fe1f75d0.png)
 
-##Mobile login 
+## Mobile login 
 
 ![image](https://user-images.githubusercontent.com/66845300/182656895-070a6970-0ef4-426c-a046-846a258f7835.png)
 
-##Mobile Interfaz
+## Mobile Interfaz
 
 ![image](https://user-images.githubusercontent.com/66845300/182657104-766e4185-65ad-40a8-a041-c512d82b2396.png)
 
