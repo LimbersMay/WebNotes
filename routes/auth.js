@@ -3,7 +3,7 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 const { passport } = require('../config/passport');
 
-const { login, signIn, logOut } = require('../controllers/auth');
+const { signIn, logOut, loginGoogle } = require('../controllers/auth');
 const { existeEmail } = require('../helpers/db-validators');
 const getTimeZone = require('../helpers/get-time-zone');
 const { validatePassword } = require('../middlewares/password-validator');
@@ -22,6 +22,16 @@ router.post('/login', [
         failureFlash: true
     })
 ]);
+
+router.get('/google', [
+    getTimeZone,
+    passport.authenticate('google', { scope: ['profile', 'email']}),
+]);
+
+router.get('/google/callback', passport.authenticate('google', {
+    failureRedirect: '/user/login',
+    successRedirect: '/user/home'
+}))
 
 router.post('/signin', [
     check('username', 'Username is neccesary').not().isEmpty(),

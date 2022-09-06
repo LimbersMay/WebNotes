@@ -1,13 +1,15 @@
 const passport = require('passport');
 const PassportLocal = require('passport-local').Strategy;
 
+const GoogleStrategy = require('passport-google-oidc');
+
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
 
-passport.use(new PassportLocal( async(username, password, done) => {
+passport.use(new PassportLocal(async (username, password, done) => {
 
     // Comprobamos que el usuario con el correo exista
-    const usuario = await User.findOne({email: username});
+    const usuario = await User.findOne({ email: username });
 
     // Si no existe
     if (!usuario) {
@@ -36,10 +38,42 @@ passport.serializeUser((user, done) => {
 });
 
 // 1 -> {id: 1, name: Juan}. Deserializacion Pasar del identificador al objeto
-passport.deserializeUser( async(_id, done) => {
+passport.deserializeUser(async (_id, done) => {
     const user = await User.findById(_id);
     done(null, user);
 });
+
+passport.use(new GoogleStrategy({
+
+    clientID: process.env.GOOGLE_CLIENT_ID,
+    clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL: 'https://webnoteseasy.herokuapp.com/api/auth/google/callback'
+
+}, async (issuer, profile, cb) => {
+
+    const usuario = await User.findOne({
+            "providerId": "111076126313328729249",
+            "provider": "google",
+            $or: [{ "email": "limbermay21@gmail.com" }]
+        }
+    );
+
+    // Si el usuario no existe lo creamos
+    if (!usuario) {
+
+        const username = profile.displayName;
+        const email = profile.emails[0].value;
+        const password = '.';
+        const provider = 'google';
+        const providerId = profile.id;
+
+        const usuario = new User({ username, email, password, provider, providerId });
+        usuario.save();
+        return cb(null, usuario);
+    }
+
+    return cb(null, usuario);
+}));
 
 module.exports = {
     passport
