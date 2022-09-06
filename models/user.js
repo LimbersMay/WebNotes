@@ -21,7 +21,13 @@ const userSchema = Schema({
         content: String,
         date: Date,
         modified_at: Date
-    }]
+    }],
+    provider: {
+        type: String
+    },
+    providerId: {
+        type: String
+    }
 });
 
 module.exports = model('User', userSchema);
