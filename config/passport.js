@@ -52,9 +52,9 @@ passport.use(new GoogleStrategy({
 }, async (issuer, profile, cb) => {
 
     const usuario = await User.findOne({
-            "providerId": "111076126313328729249",
+            "providerId": profile.id,
             "provider": "google",
-            $or: [{ "email": "limbermay21@gmail.com" }]
+            $or: [{ "email": profile.emails[0].value }]
         }
     );
 
