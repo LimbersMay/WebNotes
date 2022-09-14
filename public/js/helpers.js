@@ -3,9 +3,14 @@
 const fechaInput = document.getElementsByClassName('date__hidden')[0];
 const zonaActual = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-if (fechaInput !== undefined) {
+// Incrustamos la preferencia del lenguaje al input
+const lenguajeInput = document.getElementsByClassName('language__hidden')[0];
+const lenguaje = window.navigator.userLanguage || window.navigator.language;
+
+if (fechaInput && lenguajeInput) {
     // Le incrustamos la zona actual en el input oculto
     fechaInput.value = zonaActual;
+    lenguajeInput.value = lenguaje;
 }
 
 const loginButton = document.getElementById('google-sigin');
