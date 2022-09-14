@@ -28,16 +28,6 @@ const showNoteInfInCard = ( activeNote ) => {
 
     // Le enviamos a la nota activa el atributo de fecha de modificación
     activeNote.setAttribute('modified_at', date);
-
-    // Le enviamos a la nota activa el atributo de fecha de modificación
-    activeNote.setAttribute('modified_at', date);
-
-    // Si no hay ninguna nota activa significa que el usuario acaba de iniciar sesión 
-    // En ese caso agregamos una nueva nota al DOM y mostramos el input
-    if (activeNote === undefined) {
-        addDomNote();
-        activeNote = document.getElementsByClassName('active')[0];
-    }
         
     // Establecemos la información a sus hijos (titulo, contenido y fecha)
     activeNote.children.item(0).innerHTML = inputTitle.value;
@@ -57,15 +47,17 @@ const showNoteInfInCard = ( activeNote ) => {
     if (screen.width < 500) {
         makeVisible('list');
     }
+
+    return activeNote;
 }
 
 // Función para guardar la nota
 const saveNote = async () => {
 
     const { inputTitle, inputContent } = getNoteInformation();
-    const activeNote = document.getElementsByClassName('active')[0];
+    let activeNote = document.getElementsByClassName('active')[0];
 
-    showNoteInfInCard( activeNote );
+    activeNote = showNoteInfInCard( activeNote );
 
     // Obtenemos el ID del elemento activo
     const idElement = activeNote.id;
@@ -93,6 +85,12 @@ const removeNote = async () => {
 
     // Obtenemos la nota que está activa
     const activeNote = document.getElementsByClassName('active')[0];
+
+    // Si el usuario no ha seleccionado ningún elemento, no se eliminará nada
+    if (!activeNote) {
+        return;
+    }
+
     const activeNoteId = activeNote.id;
 
     // La eliminamos
