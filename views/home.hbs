@@ -24,7 +24,8 @@
 
         <h2 class="header__title">WebNotes</h2>
 
-        <form class="form__log__out" action="https://webnoteseasy.herokuapp.com/api/auth/logout" method="post">
+        <form class="form__log__out" action="{{ getApiUrl }}/api/auth/logout" method="post">
+
             <input class="log__out" type="submit" value="Logout">
         </form>
 
