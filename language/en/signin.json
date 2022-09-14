@@ -1,0 +1,7 @@
+{
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "repeat_password": "Repeat password",
+    "sigin_btn": "Sign In"
+}
