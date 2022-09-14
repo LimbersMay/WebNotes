@@ -31,7 +31,7 @@
                 {{ fields_errors }}
             </div>
 
-            <form action="https://webnoteseasy.herokuapp.com/api/auth/login" method="post">
+            <form action="{{ getApiUrl }}/api/auth/login" method="post">
 
                 <input class="input" type="text" placeholder="Email" name="username">
 
@@ -52,7 +52,7 @@
                 <span class="text">or</span>
             </p><br>
     
-            <a href="https://webnoteseasy.herokuapp.com/api/auth/google" id="google-sigin">Sign in with Google</a>
+            <a href="{{ getApiUrl }}/api/auth/google" id="google-sigin">Sign in with Google</a>
 
             <div class="signUp__container">
                 <p>New WebNotes?</p>
@@ -62,6 +62,5 @@
         </div>
     </div>
     <script type="module" src="/js/helpers.js"></script>
-    <script type="module" src="/js/google-login.js"></script>
 </body>
 </html>

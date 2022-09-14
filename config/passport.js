@@ -6,6 +6,8 @@ const GoogleStrategy = require('passport-google-oidc');
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
 
+const getApiUrl = require('../helpers/getApiUrl');
+
 passport.use(new PassportLocal(async (username, password, done) => {
 
     // Comprobamos que el usuario con el correo exista
@@ -47,7 +49,7 @@ passport.use(new GoogleStrategy({
 
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: 'https://webnoteseasy.herokuapp.com/api/auth/google/callback'
+    callbackURL: `${ getApiUrl() }/api/auth/google/callback`
 
 }, async (issuer, profile, cb) => {
 

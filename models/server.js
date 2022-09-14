@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const moment = require("moment")
 
 const momentTz = require("moment-timezone");
 
@@ -11,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const { passport } = require('../config/passport');
 const session = require('express-session');
 const flash = require('express-flash');
+const getApiUrl = require('../helpers/getApiUrl');
 
 class Server {
 
@@ -86,8 +86,12 @@ class Server {
 
             const formatoCliente = process.env.TZCLIENT || process.env.TZ;
 
-            let momentFormatted = momentTz(date).tz(formatoCliente).format('LLL');
+            let momentFormatted = momentTz(date).tz(formatoCliente).format(format);
             return momentFormatted;
+        });
+
+        hbs.registerHelper('getApiUrl', () => {
+            return getApiUrl();
         });
     }
 
