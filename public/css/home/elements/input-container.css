@@ -1,0 +1,10 @@
+.notes__content__container {
+    width: 75%;
+    height: 100%;
+    background-color: var(--notes-cont-back);
+    padding: 50px;
+    text-align: justify;
+    display: block;
+
+    overflow: auto;
+}

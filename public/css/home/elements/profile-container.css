@@ -1,0 +1,9 @@
+.profile__container {
+    width: 25%;
+    color: white;
+    height: 100%;
+    background-color: var(--profile-back);
+    text-align: center;
+
+    padding: 10px;
+}
