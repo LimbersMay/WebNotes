@@ -21,10 +21,9 @@
 
         <div class="form__container">
 
-            
             <br><h1>WebNotes</h1><br>
 
-            <p>Welcome to WebNotes</p><br>
+            <p>{{ dictionary.subtitle }}</p><br>
 
             <div id="error__message">
                 {{ errors }}
@@ -33,35 +32,37 @@
 
             <form action="{{ getApiUrl }}/api/auth/login" method="post">
 
-                <input class="input" type="text" placeholder="Email" name="username">
+                <input class="input" type="text" placeholder="{{ dictionary.email }}" name="username">
 
-                <input class="input" type="password" placeholder="password" name="password">
+                <input class="input" type="password" placeholder="{{ dictionary.password }}" name="password">
 
                 <p class="text__forgot">
                     <a class="forgot__password" href="">
-                        <small>¿forgot password?</small>
+                        <small>{{ dictionary.forgot_password }}</small>
                     </a>
                 </p>
 
                 <input class="date__hidden" type="hidden" name="timezone" value="">
                 <input class="language__hidden" type="hidden" name="language", value="">
 
-                <input class="login__button" type="submit" value="Log In">
+                <input class="login__button" type="submit" value="{{ dictionary.login }}">
             </form>
 
             <p class="container__or">
                 <span class="text">or</span>
             </p><br>
     
-            <a href="{{ getApiUrl }}/api/auth/google" id="google-sigin">Sign in with Google</a>
+            <a href="{{ getApiUrl }}/api/auth/google" id="google-sigin">{{ dictionary.signin_with_google }}</a>
 
             <div class="signUp__container">
-                <p>New WebNotes?</p>
-                <a href="/user/signin">Create Account</a>
+                <p>{{ dictionary.new_user }}</p>
+                <a href="/user/signin">{{ dictionary.register }}</a>
             </div>
 
         </div>
     </div>
+    
+    <script type="module" src="/js/user/sendUserSettings.js"></script>
     <script type="module" src="/js/helpers.js"></script>
 </body>
 </html>
