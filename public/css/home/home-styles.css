@@ -1,3 +1,13 @@
+
+/* CONTAINER OF ALL THE USER NOTES */
+@import './elements/header.css';
+@import './elements/main-container.css';
+@import './elements/profile-container.css';
+@import './elements/input-container.css';
+@import './elements/footer.css';
+
+@import './home-responsive.css';
+
 * {
     margin: 0;
     padding: 0;
@@ -27,72 +37,8 @@ body {
     width: 100vw;
 }
 
-header {
-    background-color: var(--header-back);
-    color: white;
-    width: 100%;
-    height: 50px;
-    display: flex;
-}
+/* MAIN CONTAINER */
 
-img {
-    max-width: 80%;
-    max-height: 80%;
-    margin: 5px;
-    margin-left: 10px;
-}
-
-.header__logo {
-    align-self: center;
-    width: 70px;
-    height: 70px;
-}
-
-.header__title {
-    align-self: center;
-}
-
-.form__log__out {
-    margin-left: auto;
-    display: flex;
-    align-content: center;
-}
-
-.log__out {
-    background-color: transparent;
-    border: none;
-    font-weight: bold;
-    padding: 15px;
-    font-size: 16px;
-    margin-left: auto;
-    color: white;
-}
-
-.log__out:hover {
-    color: rgb(221, 221, 221); 
-}
-
-.container {
-    width: 100%;
-    height: calc(100% - 75px);
-    background-color: rgb(104, 104, 104);
-
-    margin: 0 auto;
-
-    display: flex;
-    gap: 1px;
-}
-
-/* CONTAINER OF ALL THE USER NOTES */
-.profile__container {
-    width: 25%;
-    color: white;
-    height: 100%;
-    background-color: var(--profile-back);
-    text-align: center;
-
-    padding: 10px;
-}
 
 .content__form {
     display: flex;
@@ -213,16 +159,7 @@ form.content__form input[type="text"] {
 
 
 /*  NOTES CONTENT STYLES WHERE THE USER WILL PUT HIS INFORMATION  */
-.notes__content__container {
-    width: 75%;
-    height: 100%;
-    background-color: var(--notes-cont-back);
-    padding: 50px;
-    text-align: justify;
-    display: block;
 
-    overflow: auto;
-}
 
 .note__body__title {
     font-family: Arial, Helvetica, sans-serif;
@@ -291,67 +228,4 @@ form.content__form input[type="text"] {
 
 .note__save:hover {
     background-color: #1d8f61;
-}
-
-footer {
-    width: 100%;
-    height: 25px;
-    background-color: var(--footer-back);
-}
-
-@media screen and (max-width:871px) {
-    .note__title {
-        font-size: 13px;
-    }
-
-    .note__content {
-        font-size: 12px;
-    }
-
-    .note__date {
-        font-size: 10px;
-    }
-}
-
-/* MOBILE */
-@media screen and (max-width:500px) {
-    .notes__content__container {
-        display: none;
-        text-align: center;
-    }
-
-    .input__title {
-        font-size: 24px;
-    }
-
-    .input__body {
-        font-size: 16px;
-    }
-
-    .modified__at {
-        font-size: 12px;
-        padding: 20px;
-    }
-
-    .note__save,
-    .note__delete {
-        width: 30%;
-    }
-
-    .profile__container {
-        width: 100%;
-    }
-
-    .notes__note {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .note__date {
-        visibility: visible;
-    }
-
-    .note__content {
-        visibility: visible;
-    }
 }
