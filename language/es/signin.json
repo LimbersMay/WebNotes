@@ -1,7 +1,8 @@
 {
+    "subtitle": "Bienvenido a WebNotes",
     "username": "Nombre de usuario",
     "email": "Correo electrónico",
     "password": "Contraseña",
     "repeat_password": "Repetir contraseña",
-    "sigin_btn": "Registrarse"
+    "signIn": "Registrarse"
 }
