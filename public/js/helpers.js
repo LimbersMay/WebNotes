@@ -1,24 +1,3 @@
-
-// Obtenemos el input oculto de la fecha 
-const fechaInput = document.getElementsByClassName('date__hidden')[0];
-const zonaActual = Intl.DateTimeFormat().resolvedOptions().timeZone;
-
-// Incrustamos la preferencia del lenguaje al input
-const lenguajeInput = document.getElementsByClassName('language__hidden')[0];
-const lenguaje = window.navigator.userLanguage || window.navigator.language;
-
-if (fechaInput && lenguajeInput) {
-    // Le incrustamos la zona actual en el input oculto
-    fechaInput.value = zonaActual;
-    lenguajeInput.value = lenguaje;
-}
-
-const loginButton = document.getElementById('google-sigin');
-
-if ( loginButton ) {
-    loginButton.setAttribute('href', loginButton.getAttribute('href') + '?timezone=' + zonaActual);
-}
-
 // Formateamos la fecha actual
 const formatDate = (date) => {
 
