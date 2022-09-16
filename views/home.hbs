@@ -17,16 +17,22 @@
 
     <header>
 
-        <picture class="header__logo">
-            <img src="/images/webnotes.png" alt="">
-        </picture>
+        <div id="title__container">
+            <picture class="header__logo">
+                <img src="/images/webnotes.png" alt="">
+            </picture>
 
-        <h2 class="header__title">WebNotes</h2>
+            <h2 class="header__title">WebNotes</h2>
+        </div>
 
-        <form class="form__log__out" action="{{ getApiUrl }}/api/auth/logout" method="post">
+        <div id="user__buttons">
+            <a class="user__settingsBtn" href=""> Settings </a>
 
-            <input class="log__out" type="submit" value="{{ dictionary.logOut }}">
-        </form>
+            <form class="form__log__out" action="{{ getApiUrl }}/api/auth/logout" method="post">
+
+                <input class="log__out" type="submit" value="{{ dictionary.logOut }}">
+            </form>
+        </div>
 
     </header>
 
@@ -60,21 +66,21 @@
 
                 </div>
                 -->
-                
+
                 {{#each nota}}
-                    
-                    <div id="{{_id}}" class="notes__note" modified_at="{{formatTime modified_at 'LLL'}}">
 
-                        <h3 class="note__title">{{title}}</h3>
+                <div id="{{_id}}" class="notes__note" modified_at="{{formatTime modified_at 'LLL'}}">
 
-                        <p class="note__content">{{content}}</p>
+                    <h3 class="note__title">{{title}}</h3>
 
-                        <p class="note__date">{{formatTime date 'LL'}}</p>
+                    <p class="note__content">{{content}}</p>
 
-                    </div>
-       
+                    <p class="note__date">{{formatTime date 'LL'}}</p>
+
+                </div>
+
                 {{/each}}
-                
+
             </div>
         </div>
 
@@ -97,4 +103,5 @@
 
     <script type="module" src="/js/app.js"></script>
 </body>
+
 </html>
