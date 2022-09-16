@@ -26,7 +26,7 @@
 
         <form class="form__log__out" action="{{ getApiUrl }}/api/auth/logout" method="post">
 
-            <input class="log__out" type="submit" value="Logout">
+            <input class="log__out" type="submit" value="{{ dictionary.logOut }}">
         </form>
 
     </header>
@@ -37,15 +37,14 @@
 
             <form action="" class="content__form">
 
-                <input type="text" placeholder="Search something" class="input__search">
+                <input type="text" placeholder="{{ dictionary.search_something }}" class="input__search">
                 <button class="content__search" type="submit"><i class="fa fa-search"></i></button>
 
             </form>
 
             <button class="content__add__note">
-                <big><b>Add Note</b></big>
+                <big><b>{{ dictionary.add_note }}</b></big>
             </button>
-
 
             <div class="content__notes">
 
@@ -82,14 +81,14 @@
 
         <div class="notes__content__container">
 
-            <textarea class="input__title" cols="39" rows="1" placeholder="Title"></textarea>
+            <textarea class="input__title" cols="39" rows="1" placeholder="{{ dictionary.title }}"></textarea>
 
-            <textarea class="input__body" cols="30" rows="15" placeholder="Input your text here"></textarea>
+            <textarea class="input__body" cols="30" rows="15" placeholder="{{ dictionary.input_text }}"></textarea>
 
             <p class="modified__at"></p>
 
-            <button class="note__save">Save</button>
-            <button class="note__delete">Delete</button>
+            <button class="note__save">{{ dictionary.save }}</button>
+            <button class="note__delete">{{ dictionary.delete }}</button>
 
         </div>
     </div>
