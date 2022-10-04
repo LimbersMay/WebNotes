@@ -1,0 +1,33 @@
+@import '../home/home-template.css';
+
+/* avoid that p elements have events */
+p {
+    pointer-events: none;
+}
+
+.option {
+    display: flex;
+    background-color: #303841;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+
+    align-items: center;
+}
+
+.option:hover {
+    background-color: #36414d;
+}
+
+.card{  
+    padding: 5px;
+}
+
+.card__icon {
+    min-width: 25px;
+    min-height: 25px;
+
+    max-width: 15px;
+    max-height: 15px;
+}
