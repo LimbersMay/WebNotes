@@ -49,9 +49,14 @@ const home = (req, res) => {
     });
 }
 
+const settings = (req, res) => {
+    res.render('profile');
+}
+
 module.exports = {
     login,
     signin,
     home,
-    getUserPreferences
+    getUserPreferences,
+    settings
 }

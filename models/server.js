@@ -20,7 +20,7 @@ class Server {
         this.port = process.env.PORT;
 
         // Handlebars config
-        hbs.registerPartials(__dirname + "/views/partials");
+        hbs.registerPartials(__dirname + "/views");
         this.app.set('view engine', 'hbs');
 
         // Rutas

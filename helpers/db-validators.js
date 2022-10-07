@@ -9,6 +9,14 @@ const existeEmail = async (email) => {
     }
 };
 
+const existeNombreUsuario = async(username) => {
+    const exist = await User.findOne({ username });
+
+    if (exist) {
+        throw new Error(`El nombre de usuario ${ username } ya se encuentra registrado`);
+    }
+}
+
 const existeNota = async(idNote, { req }) => {
         
     const { _id } = req.user;
@@ -30,5 +38,6 @@ const existeNota = async(idNote, { req }) => {
 
 module.exports = {
     existeEmail,
-    existeNota
+    existeNota,
+    existeNombreUsuario
 }

@@ -12,49 +12,6 @@
     }
 }
 
-/* MOBILE */
-@media screen and (max-width:500px) {
-    .notes__content__container {
-        display: none;
-        text-align: center;
-    }
-
-    .input__title {
-        font-size: 24px;
-    }
-
-    .input__body {
-        font-size: 16px;
-    }
-
-    .modified__at {
-        font-size: 12px;
-        padding: 20px;
-    }
-
-    .note__save,
-    .note__delete {
-        width: 30%;
-    }
-
-    .profile__container {
-        width: 100%;
-    }
-
-    .notes__note {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .note__date {
-        visibility: visible;
-    }
-
-    .note__content {
-        visibility: visible;
-    }
-}
-
 @media screen and (max-width:871px) {
     .note__title {
         font-size: 13px;
