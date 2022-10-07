@@ -1,6 +1,5 @@
 import makeVisible from '../events/make-visible.js';
 
-
 const renderElement = (htmlContent, parent) => {
 
     // Verificamos que la pantalla este debajo de los 500pxs
@@ -8,7 +7,11 @@ const renderElement = (htmlContent, parent) => {
         makeVisible('input');
     }
 
+    // Limpiamos la pantalla actual 
+    parent.innerHTML = '';
     parent.insertAdjacentHTML('beforeend', htmlContent)
 }
 
-export default renderElement;
+export {
+    renderElement
+};
