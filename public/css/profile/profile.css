@@ -1,4 +1,5 @@
 @import '../home/home-template.css';
+@import './account.css';
 
 /* avoid that p elements have events */
 p {
