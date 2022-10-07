@@ -4,8 +4,8 @@
 }
 
 .user__settings, .user__preferences {
-    padding: 15px;
 
+    padding-bottom: 15px;
     display: flex;
     justify-content: left;
     gap: 20px;
@@ -29,7 +29,7 @@
 }
 
 .setting__buttons {
-    padding: 15px;
+    padding-top: 15px;
 }
 
 .setting__save, .setting__cancel {
@@ -66,5 +66,9 @@
 
     .setting__input {
         width: 100%;
+    }
+
+    .user__settings, .user__preferences {
+        flex-direction: column;
     }
 }
