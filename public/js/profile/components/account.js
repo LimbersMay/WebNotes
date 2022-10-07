@@ -7,12 +7,12 @@ const getAccountHtml = () => {
                     <div class="user__settings">
                         <div class="setting">
                             <label class="setting__title" for="username">Username</label><br>
-                            <input class="setting__input" type="text">
+                            <input class="setting__input" name="username" type="text">
                         </div>
 
                         <div class="setting">
                                 <label class="setting__title" for="email">Email</label><br>
-                                <input class="setting__input" type="email">
+                                <input class="setting__input" name="email" type="email">
                         </div>
                     </div>
 
