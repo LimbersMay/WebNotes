@@ -1,7 +1,6 @@
-
 .account__settings {
-
-    height: 500px;
+    height: 100%;
+    width: 100%;
 }
 
 .user__settings, .user__preferences {
@@ -10,15 +9,6 @@
     display: flex;
     justify-content: left;
     gap: 20px;
-}
-
-.user__preferences {
-    padding: 15px;
-
-}
-
-.setting {
-    text-align: center;
 }
 
 .setting__title {
@@ -30,14 +20,15 @@
     background-color: rgb(247, 247, 247);
     border-radius: 5px;
     padding: 5px;
-    border: 0px;
+
+    border-color: #e4e1e1;
+    border-width: 1px;
 
     margin-top: 5px;
     width: 350px;
 }
 
 .setting__buttons {
-
     padding: 15px;
 }
 
@@ -45,15 +36,35 @@
     color: white;
     border-radius: 3px;
 
-    padding: 5px;
+    padding: 6px;
     width: 75px;
     border-style: none;
 }
 
 .setting__save {
-    background-color: #303841;
+    background-color: #3f7931;
 }
 
 .setting__cancel {
-    background-color: rgb(128, 126, 126);
+    background-color: rgb(126, 122, 122);
+}
+
+.setting__save:hover {
+    background-color: #458b33;
+}
+
+.setting__cancel:hover {
+    background-color: rgb(151, 143, 143);
+}
+
+/* RESPONSIVE FOR THE ACCOUNT  */
+@media screen and (max-width:750px) {
+
+    .setting {
+        width: 100%;
+    }
+
+    .setting__input {
+        width: 100%;
+    }
 }
