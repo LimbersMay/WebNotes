@@ -11,7 +11,6 @@ router.put('/save-config', [
     estaAutenticado,
     check('email', 'Invalid email').optional().isEmail(),
     check('email').optional().custom(esPropietarioEmail),
-    check('username').optional().custom(existeNombreUsuario),
     validarErrores
 ], userSaveConfig);
 
