@@ -26,6 +26,7 @@ class Server {
         // Rutas
         this.authPath = '/api/auth/';
         this.userPath = '/user';
+        this.userConfigPath = '/api/user-config'
         this.notePath = '/api/note';
         this.homePath = '/';
         
@@ -100,6 +101,7 @@ class Server {
         this.app.use(this.homePath, require('../routes/home'));
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/user'));
+        this.app.use(this.userConfigPath, require('../routes/user-config'));
         this.app.use(this.notePath, require('../routes/note'));
     }
 
