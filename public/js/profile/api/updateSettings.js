@@ -23,7 +23,31 @@ const updateAccountChangesAPI = async( bodyRequest ) => {
 
     return response.json();
 }
+ 
+const updateAccountPasswordAPI = async( bodyRequest ) => {
+
+    /*
+    
+        body = {
+            currentPassword: '',
+            newPassword: '',
+            repeatPassword: ''
+        }
+
+    */
+
+    const response = await fetch(apiUrl + '/api/user-config/change-password', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(bodyRequest)
+    });
+    
+    return response.json();
+}
 
 export {
-    updateAccountChangesAPI
+    updateAccountChangesAPI,
+    updateAccountPasswordAPI
 }
