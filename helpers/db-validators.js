@@ -9,6 +9,15 @@ const existeEmail = async (email) => {
     }
 };
 
+const esPropietarioEmail = async( email, { req } ) => {
+
+    const { user } = req;
+    
+    if ( email !== user.email ) {
+        throw new Error(`El correo ${ email } ya se encuentra registrado`);
+    }
+}
+
 const existeNombreUsuario = async(username) => {
     const exist = await User.findOne({ username });
 
@@ -39,5 +48,6 @@ const existeNota = async(idNote, { req }) => {
 module.exports = {
     existeEmail,
     existeNota,
-    existeNombreUsuario
+    existeNombreUsuario,
+    esPropietarioEmail
 }
