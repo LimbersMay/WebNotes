@@ -39,7 +39,7 @@ const userChangePassword = async( req, res ) => {
     )
 
     return res.status(200).json({
-        user
+        msg: 'Password changed succefully'
     });
 }
 
