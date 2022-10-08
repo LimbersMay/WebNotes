@@ -1,5 +1,4 @@
 import { updateAccountChangesAPI, updateAccountPasswordAPI } from "../api/updateSettings.js";
-import { handlePasswordError } from "../messageHandling/sendSettings.js";
 
 const handleMessage = ( element, classList, message ) => {
     element.classList.add(classList);
@@ -10,11 +9,17 @@ const sendAccountChanges = async (event) => {
 
     event.preventDefault();
 
+    const emailMessageHtml = event.target.getElementsByClassName('email__message')[0];
+
     const formData = new FormData(event.target);
     const bodyRequest = Object.fromEntries(formData);
 
-    const response = await updateAccountChangesAPI(bodyRequest);
-    console.log(response);
+    try {
+        const response = await updateAccountChangesAPI(bodyRequest);
+        handleMessage( emailMessageHtml, 'email__successful', response.msg);
+    } catch ( error ) {
+        handleMessage( emailMessageHtml, 'email__exception', error.msg);
+    }
 }
 
 const sendAccountPassword = async( event ) => {
