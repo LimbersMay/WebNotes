@@ -15,6 +15,7 @@ const getAccountHtml = () => {
                     <div class="setting">
                             <label class="setting__title" for="email">Email</label><br>
                             <input class="setting__input email" name="email" type="email">
+                            <p class="email__exception"></p>
                     </div>
                 </div>
 

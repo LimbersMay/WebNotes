@@ -21,6 +21,10 @@ const getPasswordHtml = () => {
                     <label class="setting__title" for="repeatPassword">Repeat password</label><br>
                     <input class="setting__input" name="repeatPassword" type="password">
                 </div>
+
+                <div class="password__exception">
+                    
+                </div>
             </div>
 
             <div class="setting__buttons">
