@@ -22,7 +22,7 @@ const getPasswordHtml = () => {
                     <input class="setting__input" name="repeatPassword" type="password">
                 </div>
 
-                <div class="password__exception">
+                <div class="password__message">
                     
                 </div>
             </div>
