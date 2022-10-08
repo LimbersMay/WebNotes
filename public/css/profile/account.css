@@ -58,10 +58,17 @@
     background-color: rgb(151, 143, 143);
 }
 
+.password__message {
+    align-self: center;
+}
+
 /* Exception messages */
 .password__exception {
     color: brown;
-    align-self: center;
+}
+z
+.password__successful {
+    color: rgb(13, 82, 42);
 }
 
 .email__exception {
