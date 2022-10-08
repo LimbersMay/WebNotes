@@ -5,7 +5,7 @@ const getAccountHtml = () => {
 
     const htmlElement = 
         `
-            <section class="account__settings">
+            <form class="account__settings" onsubmit="">
                 <div class="user__settings">
                     <div class="setting">
                         <label class="setting__title" for="username">Username</label><br>
@@ -14,7 +14,7 @@ const getAccountHtml = () => {
 
                     <div class="setting">
                             <label class="setting__title" for="email">Email</label><br>
-                            <input class="setting__input email"  name="email" type="email">
+                            <input class="setting__input email" name="email" type="email">
                     </div>
                 </div>
 
@@ -60,10 +60,10 @@ const getAccountHtml = () => {
                 </div>
 
                 <div class="setting__buttons">
-                    <button class="setting__save">Update</button>
+                    <button type="submit" class="setting__save">Update</button>
                     <button class="setting__cancel">Cancel</button>
                 </div>
-            </section>
+            </form>
         `
         
     let parser = new DOMParser();
@@ -72,8 +72,7 @@ const getAccountHtml = () => {
     parsedHtml = parsedHtml.getElementsByClassName('account__settings')[0];
     
     // Le agregamos el evento al botón de actualizar los datos
-    parsedHtml.getElementsByClassName('setting__save')[0]
-    .addEventListener('click', ( event ) => sendAccountChanges( event, parsedHtml ))
+    parsedHtml.addEventListener('submit', sendAccountChanges);
 
     return parsedHtml;
 }
