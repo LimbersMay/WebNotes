@@ -1,7 +1,7 @@
 import { updateAccountChangesAPI, updateAccountPasswordAPI } from "../api/updateSettings.js";
 
-const handleMessage = ( element, classList, message ) => {
-    element.classList.add(classList);
+const handleMessage = ( element, id, message ) => {
+    element.id = id;
     element.innerHTML = message;
 }
 
@@ -31,8 +31,6 @@ const sendAccountPassword = async( event ) => {
 
     const formData = new FormData(event.target);
     const bodyRequest = Object.fromEntries(formData);
-
-    console.log(bodyRequest);
 
     // Verificamos que ambas contraseñas coincidan
     if ( bodyRequest.newPassword !== bodyRequest.repeatPassword ) {

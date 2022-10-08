@@ -63,14 +63,14 @@
     align-self: center;
 }
 
-.password__successful, .email__successful {
+#password__successful, #email__successful {
     color: rgb(13, 82, 42);
 }
 
-.password__exception {
+#password__exception {
     color: brown;
 }
-.email__exception {
+#email__exception {
     color: brown;
     padding: 5px;
 }
