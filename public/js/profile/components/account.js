@@ -32,31 +32,29 @@ const getAccountHtml = () => {
                             <label class="setting__title" for="timezone">Timezone</label><br>
 
                             <select class="setting__input timezone" name="timezone">
-                                <option value="GMT-12:00">GMT-12:00</option>
-                                <option value="GMT-11:00">GMT-11:00</option>
-                                <option value="GMT-10:00">GMT-10:00</option>
-                                <option value="GMT-09:00">GMT-09:00</option>
-                                <option value="GMT-08:00">GMT-08:00</option>
-                                <option value="GMT-07:00">GMT-07:00</option>
-                                <option value="GMT-06:00">GMT-06:00</option>
-                                <option value="GMT-05:00">GMT-05:00</option>
-                                <option value="GMT-04:00">GMT-04:00</option>
-                                <option value="GMT-03:00">GMT-03:00</option>
-                                <option value="GMT-02:00">GMT-02:00</option>
-                                <option value="GMT-01:00">GMT-01:00</option>
-                                <option value="GMT+00:00">GMT+00:00</option>
-                                <option value="GMT+01:00">GMT+01:00</option>
-                                <option value="GMT+02:00">GMT+02:00</option>
-                                <option value="GMT+03:00">GMT+03:00</option>
-                                <option value="GMT+04:00">GMT+04:00</option>
-                                <option value="GMT+05:00">GMT+05:00</option>
-                                <option value="GMT+06:00">GMT+06:00</option>
-                                <option value="GMT+07:00">GMT+07:00</option>
-                                <option value="GMT+08:00">GMT+08:00</option>
-                                <option value="GMT+09:00">GMT+09:00</option>
-                                <option value="GMT+10:00">GMT+10:00</option>
-                                <option value="GMT+11:00">GMT+11:00</option>
-                                <option value="GMT+12:00">GMT+12:00</option>
+                                <option value="UTC-11:00">UTC-11:00</option>
+                                <option value="UTC-10:00">UTC-10:00</option>
+                                <option value="UTC-09:00">UTC-09:00</option>
+                                <option value="UTC-8:00">UTC-08:00</option>
+                                <option value="UTC-7:00">UTC-07:00</option>
+                                <option value="UTC-6:00">UTC-06:00</option>
+                                <option value="UTC-5:00">UTC-05:00</option>
+                                <option value="UTC-4:00">UTC-04:00</option>
+                                <option value="UTC-3:00">UTC-03:00</option>
+                                <option value="UTC-2:00">UTC-02:00</option>
+                                <option value="UTC-1:00">UTC-01:00</option>
+                                <option value="UTC+0:00">UTC+00:00</option>
+                                <option value="UTC+1:00">UTC+01:00</option>
+                                <option value="UTC+2:00">UTC+02:00</option>
+                                <option value="UTC+3:00">UTC+03:00</option>
+                                <option value="UTC+4:00">UTC+04:00</option>
+                                <option value="UTC+5:00">UTC+05:00</option>
+                                <option value="UTC+6:00">UTC+06:00</option>
+                                <option value="UTC+7:00">UTC+07:00</option>
+                                <option value="UTC+8:00">UTC+08:00</option>
+                                <option value="UTC+9:00">UTC+09:00</option>
+                                <option value="UTC+10:00">UTC+10:00</option>
+                                <option value="UTC+11:00">UTC+11:00</option>
                             </select>
                     </div>
                 </div>
