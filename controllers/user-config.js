@@ -20,7 +20,7 @@ const userSaveConfig = async ( req, res ) => {
     );
 
     return res.status(200).json({
-        user
+        msg: 'Email changed successfully'
     })
 }
 
@@ -39,7 +39,7 @@ const userChangePassword = async( req, res ) => {
     )
 
     return res.status(200).json({
-        msg: 'Password changed succefully'
+        msg: 'Password changed successfully'
     });
 }
 
