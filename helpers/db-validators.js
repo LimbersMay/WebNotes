@@ -14,7 +14,13 @@ const esPropietarioEmail = async( email, { req } ) => {
     const { user } = req;
     
     if ( email !== user.email ) {
-        throw new Error(`El correo ${ email } ya se encuentra registrado`);
+        
+        // Verificamos si el email se encuentra registrado
+        const exist = await User.findOne({ email });
+
+        if ( exist ) {
+            throw new Error(`El correo ${ email } ya se encuentra registrado`);
+        }
     }
 }
 
