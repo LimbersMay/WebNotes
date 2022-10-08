@@ -21,7 +21,12 @@ const updateAccountChangesAPI = async( bodyRequest ) => {
         body: JSON.stringify(bodyRequest),
     });
 
-    return response.json();
+    const bodyResponse = await response.json();
+
+    return new Promise(( resolve, reject ) => {
+        if ( !response.ok ) reject(bodyResponse.errors[0]); 
+        resolve(bodyResponse);
+    });
 }
  
 const updateAccountPasswordAPI = async( bodyRequest ) => {
@@ -43,8 +48,13 @@ const updateAccountPasswordAPI = async( bodyRequest ) => {
         },
         body: JSON.stringify(bodyRequest)
     });
-    
-    return response.json();
+
+    const bodyResponse = await response.json();
+
+    return new Promise(( resolve, reject ) => {
+        if ( !response.ok ) reject(bodyResponse.errors[0]); 
+        resolve(bodyResponse);
+    });
 }
 
 export {
