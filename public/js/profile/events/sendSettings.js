@@ -1,25 +1,28 @@
-import { updateAccountChangesAPI } from "../api/updateSettings.js";
+import { updateAccountChangesAPI, updateAccountPasswordAPI } from "../api/updateSettings.js";
 
-const sendAccountChanges = async(event, bodyHtml) => {
+const sendAccountChanges = async(event) => {
 
-    // Obtenemos los elementos que nos interesa del body 
-    const username = bodyHtml.getElementsByClassName('username')[0].value;
-    const email = bodyHtml.getElementsByClassName('email')[0].value;
-    const language = bodyHtml.getElementsByClassName('language')[0].value;
-    const timezone = bodyHtml.getElementsByClassName('timezone')[0].value;
+    event.preventDefault();
 
-    const body = {
-        language,
-        timezone
-    }
-
-    if ( username !== '' ) body.username = username;
-    if ( email !== '' )    body.email = email;
+    const formData = new FormData(event.target);
+    const bodyRequest = Object.fromEntries(formData);
     
-    const response = await updateAccountChangesAPI(body);
+    const response = await updateAccountChangesAPI(bodyRequest);
+    console.log(response);
+}
+
+const sendAccountPassword = async( event ) => {
+
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const bodyRequest = Object.fromEntries(formData);
+
+    const response = await updateAccountPasswordAPI(bodyRequest);
     console.log(response);
 }
 
 export {
-    sendAccountChanges
+    sendAccountChanges,
+    sendAccountPassword
 }
