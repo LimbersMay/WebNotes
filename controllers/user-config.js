@@ -1,12 +1,12 @@
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
 
-const userSaveConfig = async ( req, res ) => {
+const putUserConfig = async ( req, res ) => {
 
     const { _id } = req.user;
     const { username, email, language, timezone } = req.body;
 
-    const user = await User.findOneAndUpdate(
+    await User.updateOne(
         { _id },
         {
             username,
@@ -24,7 +24,7 @@ const userSaveConfig = async ( req, res ) => {
     })
 }
 
-const userChangePassword = async( req, res ) => {
+const putUserPassword = async( req, res ) => {
 
     const { newPassword } = req.body;
     const { _id } = req.user;
@@ -32,7 +32,7 @@ const userChangePassword = async( req, res ) => {
     const salt = bcryptjs.genSaltSync();
     const password = bcryptjs.hashSync(newPassword, salt);
 
-    const user = await User.findOneAndUpdate(
+    await User.updateOne(
         { _id }, // Query
         { password }, // Campos alterados
         { new: true } // Opciones adicionales
@@ -43,7 +43,24 @@ const userChangePassword = async( req, res ) => {
     });
 }
 
+const getUserConfig = ( req, res ) => {
+
+    const { email, username, preferences } = req.user;
+
+    const bodyResponse = {
+        email,
+        username,
+        language: preferences.language,
+        timezone: preferences.timezone
+    }
+
+    res.status(200).json(
+        bodyResponse
+    );
+}
+
 module.exports = {
-    userSaveConfig,
-    userChangePassword
+    putUserConfig,
+    putUserPassword,
+    getUserConfig
 }
