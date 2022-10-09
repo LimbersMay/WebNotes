@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { login, signin, home, getUserPreferences, settings } = require('../controllers/user');
+const { login, signin, home, settings } = require('../controllers/user');
 
 const router = Router();
 
@@ -18,8 +18,6 @@ router.get('/signin', (req, res, next) => {
     next();
 
 }, signin);
-
-router.post('/get-preferences', getUserPreferences);
 
 router.get('/profile', (req, res, next) => {
     
