@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { login, signin, home, getUserPreferences } = require('../controllers/user');
+const { login, signin, home, settings } = require('../controllers/user');
 
 const router = Router();
 
@@ -19,7 +19,12 @@ router.get('/signin', (req, res, next) => {
 
 }, signin);
 
-router.post('/get-preferences', getUserPreferences);
+router.get('/profile', (req, res, next) => {
+    
+    // Renderizamos solo si está autenticado
+    if (req.isAuthenticated()) return next();
+    res.redirect('/user/login');
+}, settings)
 
 router.get('/home', (req, res, next) => {
     // Comprobamos si el usuario está autenticado

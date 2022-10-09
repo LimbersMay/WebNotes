@@ -22,6 +22,10 @@ const userSchema = Schema({
         date: Date,
         modified_at: Date
     }],
+    preferences: {
+        language: String,
+        timezone: String
+    },
     provider: {
         type: String
     },

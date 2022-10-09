@@ -7,14 +7,10 @@ let apiUrl = (window.location.hostname.includes('localhost'))
 const saveNoteDb = (idNote, title, content) => {
     // Enviamos los datos usando fetch 
 
-    // Fecha para el servidor
-    let dateClient = new Date().toISOString();
-
     const body = {
         idNote,
         title,
-        content,
-        dateClient
+        content
     };
 
     return new Promise(async(resolve, reject) => {
@@ -31,7 +27,7 @@ const saveNoteDb = (idNote, title, content) => {
         
         // Si ocurrió un error al hacer la petición lo devolvemos en la promesa
         if (errors !== undefined) {
-            errors = Object.entries(errors.errors);
+            errors = Object.entries(errors);
             return reject(errors);
         }
 

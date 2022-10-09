@@ -1,9 +1,17 @@
-const getUserLangDictionary = () => {
 
-    let language = null;
+const getUserLangDictionary = ( req ) => {
 
-    if (process.env.USER_LANGUAGE === 'en-US') {
-        language = require('../language/en/index.js')
+    language = null;
+
+    if ( !req.user ) {
+        language = require('../language/en/index');
+        return language;
+    }
+
+    const { preferences } = req.user;
+
+    if (preferences.language === 'en-US') {
+        language = require('../language/en/index');
         return language;
     }
 

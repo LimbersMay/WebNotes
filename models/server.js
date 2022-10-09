@@ -20,12 +20,13 @@ class Server {
         this.port = process.env.PORT;
 
         // Handlebars config
-        hbs.registerPartials(__dirname + "/views/partials");
+        hbs.registerPartials(__dirname + "/views");
         this.app.set('view engine', 'hbs');
 
         // Rutas
         this.authPath = '/api/auth/';
         this.userPath = '/user';
+        this.userConfigPath = '/api/user-config'
         this.notePath = '/api/note';
         this.homePath = '/';
         
@@ -84,10 +85,7 @@ class Server {
     helpers () {
 
         hbs.registerHelper('formatTime', (date, format) => {
-
-            const formatoCliente = process.env.TZCLIENT || process.env.TZ;
-
-            let momentFormatted = momentTz(date).tz(formatoCliente).format(format);
+            let momentFormatted = momentTz(date).format(format);
             return momentFormatted;
         });
 
@@ -100,6 +98,7 @@ class Server {
         this.app.use(this.homePath, require('../routes/home'));
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/user'));
+        this.app.use(this.userConfigPath, require('../routes/user-config'));
         this.app.use(this.notePath, require('../routes/note'));
     }
 
