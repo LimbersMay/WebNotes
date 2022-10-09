@@ -69,13 +69,20 @@
 
                 {{#each nota}}
 
+                <!-- 
+                
+                modified_at -> base de datos
+                date -> objeto nota
+                
+                -->
+
                 <div id="{{_id}}" class="notes__note" modified_at="{{formatTime modified_at 'LLL'}}">
 
                     <h3 class="note__title">{{title}}</h3>
 
                     <p class="note__content">{{content}}</p>
 
-                    <p class="note__date">{{formatTime date 'LL'}}</p>
+                    <p class="note__date">{{formatTime  date 'LL'}}</p>
 
                 </div>
 
