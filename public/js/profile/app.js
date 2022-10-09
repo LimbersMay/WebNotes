@@ -1,6 +1,6 @@
 
 /* PERFIL PRINCIPAL DE LOS EVENTOS DEL APARTADO DE PERFIL */
-import { showAccountContent, showPasswordContent } from "./events/select-option.js";
+import { showAccountContent, showPasswordContent } from "./controllers/select-option.js";
 
 /* Evento de la cuenta */
 const accountContainer = document.getElementsByClassName('account')[0];
