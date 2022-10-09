@@ -7,14 +7,10 @@ let apiUrl = (window.location.hostname.includes('localhost'))
 const saveNoteDb = (idNote, title, content) => {
     // Enviamos los datos usando fetch 
 
-    // Fecha para el servidor
-    let dateClient = new Date().toISOString();
-
     const body = {
         idNote,
         title,
-        content,
-        dateClient
+        content
     };
 
     return new Promise(async(resolve, reject) => {
