@@ -76,7 +76,7 @@
 }
 
 /* RESPONSIVE FOR THE ACCOUNT  */
-@media screen and (max-width:750px) {
+@media screen and (max-width:1000px) {
 
     .setting {
         width: 100%;
