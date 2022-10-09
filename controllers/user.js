@@ -1,23 +1,10 @@
 const { getUserLangDictionary } = require("../helpers/user-preferences");
 const validarCookies = require("../helpers/validar-cookies");
 
-const getUserPreferences = ( req, res ) => {
-
-    const { userTimeZone } = req.body;
-    const { userLang } = req.body;
-
-    process.env.TZCLIENT = userTimeZone;
-    process.env.USER_LANGUAGE = userLang;
-
-    res.status(200).json({
-        msg: 'OK'
-    });
-}
-
 const login = (req, res) => {
     const fields_errors = validarCookies(req, res);
 
-    const { login } = getUserLangDictionary();
+    const { login } = getUserLangDictionary( req );
 
     res.render('login', {
         errors: req.flash('error'),
@@ -29,7 +16,7 @@ const login = (req, res) => {
 const signin = (req, res) => {
     const field_errors = validarCookies(req, res);
 
-    const { signIn } = getUserLangDictionary();
+    const { signIn } = getUserLangDictionary( req );
 
     res.render('signin', {
         fields_errors: field_errors,
@@ -41,7 +28,7 @@ const home = (req, res) => {
 
     const { notes } = req.user;
 
-    const { home } = getUserLangDictionary();
+    const { home } = getUserLangDictionary( req );
 
     res.render('home', {
         nota: notes,
@@ -57,6 +44,5 @@ module.exports = {
     login,
     signin,
     home,
-    getUserPreferences,
     settings
 }
