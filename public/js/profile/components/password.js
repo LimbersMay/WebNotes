@@ -1,4 +1,4 @@
-import { sendAccountPassword } from "../events/sendSettings.js";
+import { sendAccountPassword } from "../controllers/sendSettings.js";
 
 const getPasswordHtml = () => {
 

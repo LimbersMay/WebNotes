@@ -1,4 +1,4 @@
-import { sendAccountChanges } from "../events/sendSettings.js";
+import { sendAccountChanges } from "../controllers/sendSettings.js";
 
 // User account options HTML
 const getAccountHtml = () => {
