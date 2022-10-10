@@ -62,7 +62,5 @@ const putUserPassword = async( req, res ) => {
 
 module.exports = {
     putUserConfig,
-    putUserPassword,
-    getUserConfig,
-    getUserLangDict
+    putUserPassword
 }

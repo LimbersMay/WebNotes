@@ -2,8 +2,7 @@ const { Router } = require('express');
 const { check } = require('express-validator');
 const { 
     putUserConfig, 
-    putUserPassword, 
-    getUserConfig, getUserLangDict 
+    putUserPassword
 } = require('../controllers/user-config');
 
 const { esPropietarioEmail } = require('../helpers/db-validators');
