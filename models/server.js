@@ -89,6 +89,13 @@ class Server {
             return momentFormatted;
         });
 
+        hbs.registerHelper('isSelected', (option, value) => {
+
+            console.log('Evaluar: ', option, value);
+
+            return option === value ? 'selected' : '';
+        })
+
         hbs.registerHelper('getApiUrl', () => {
             return getApiUrl();
         });
