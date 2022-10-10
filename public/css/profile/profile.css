@@ -36,16 +36,3 @@ p {
     max-width: 15px;
     max-height: 15px;
 }
-
-/* Responsive */ 
-
-@media screen and (max-width:500px) {
-    .notes__content__container {
-        display: none;
-        text-align: center;
-    }
-
-    .profile__container {
-        width: 100%;
-    }
-}

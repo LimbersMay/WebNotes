@@ -3,6 +3,7 @@
 @import './elements/profile-container.css';
 @import './elements/input-container.css';
 @import './elements/footer.css';
+@import './home-responsive.css';
 
 * {
     margin: 0;
@@ -32,4 +33,3 @@ body {
     height: 100vh;
     width: 100vw;
 }
-
