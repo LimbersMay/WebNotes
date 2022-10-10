@@ -61,13 +61,13 @@
                 <div class="user__settings">
                     <div class="setting">
                         <label class="setting__title" for="username">{{ userAccount.username }}</label><br>
-                        <input class="setting__input username" value="{{ user.username }}" name="username" type="text">
+                        <input class="setting__input username {{ hasProvider user.provider }}" value="{{ user.username }}" name="username" type="text">
                         <p class="response__message username__message"></p>
                     </div>
 
                     <div class="setting">
                         <label class="setting__title" for="email">{{ userAccount.email }}</label><br>
-                        <input class="setting__input email" value="{{ user.email }}" name="email" type="email">
+                        <input class="setting__input email {{ hasProvider user.provider }}" value="{{ user.email }}" name="email" type="email">
                         <p class="response__message email__message"></p>
                     </div>
                 </div>
