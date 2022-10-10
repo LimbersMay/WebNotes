@@ -7,6 +7,13 @@ const getAccountSettings = async( accountHtml ) => {
     // Ponemos la información en la pantalla
     const usernameElement = accountHtml.getElementsByClassName('username')[0];
     const emailElement    = accountHtml.getElementsByClassName('email')[0];
+
+    // Si tiene un proveedor externo, no se puede cambiar el correo
+    if ( bodyResponse.provider ) {
+        emailElement.classList.add('setting__input__readOnly');
+        usernameElement.classList.add('setting__input__readOnly');
+    }
+
     const languageElement = accountHtml.getElementsByClassName('language')[0];
     const timezoneElement = accountHtml.getElementsByClassName('timezone')[0];
 
