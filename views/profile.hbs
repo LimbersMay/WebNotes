@@ -57,6 +57,93 @@
             </div>
             -->
 
+            <form id="account__options"  class="account__settings inactive__option" onsubmit="">
+                <div class="user__settings">
+                    <div class="setting">
+                        <label class="setting__title" for="username">{{ userAccount.username }}</label><br>
+                        <input class="setting__input username" value="{{ user.username }}" name="username" type="text">
+                        <p class="response__message username__message"></p>
+                    </div>
+
+                    <div class="setting">
+                        <label class="setting__title" for="email">{{ userAccount.email }}</label><br>
+                        <input class="setting__input email" value="{{ user.email }}" name="email" type="email">
+                        <p class="response__message email__message"></p>
+                    </div>
+                </div>
+
+                <div class="user__preferences">
+                    <div class="setting">
+                        <label class="setting__title" for="language">{{ userAccount.language }}</label><br>
+
+                        <select class="setting__input language" name="language">
+                            {{#each options.languages}}
+
+                            <option value="{{@key}}" {{isSelected ../user.language @key }} >
+                                {{this}}
+                            </option>
+
+                            {{/each}}
+                        </select>
+                        <p class="response__message language__message"></p>
+                    </div>
+
+                    <div class="setting">
+                        <label class="setting__title" for="timezone">{{ userAccount.timezone }}</label><br>
+
+                        <select class="setting__input timezone" name="timezone">
+                            <!-- <option value="UTC-11">UTC-11:00</option> -->
+                            
+                            {{#each options.timezones }}
+
+                            <option value="{{@key}}" {{isSelected ../user.timezone @key}}>
+                                {{ this }}
+                            </option>
+
+                            {{/each}}
+
+                        </select>
+
+                        <p class="response__message timezone__message"></p>
+                    </div>
+                </div>
+
+                <div class="setting__buttons">
+                    <button type="submit" class="setting__save">Update</button>
+                    <button type="reset" class="setting__cancel">Cancel</button>
+                </div>
+            </form>
+
+            <form id="account__password" class="account__settings inactive__option" onsubmit="">
+                <div class="user__settings">
+                    <div class="setting">
+                        <label class="setting__title" for="password">{{ userPassword.current_password }}</label><br>
+                        <input autocomplete="on" class="setting__input" name="currentPassword" type="password">
+                    </div>
+
+                    <div class="setting">
+                        <label class="setting__title" for="newPassword">{{ userPassword.new_password }}</label><br>
+                        <input class="setting__input" name="newPassword" type="password">
+                    </div>
+                </div>
+
+                <div class="user__preferences">
+                    <div class="setting">
+                        <label class="setting__title" for="repeatPassword">{{ userPassword.repeat_password }}</label><br>
+                        <input class="setting__input" name="repeatPassword" type="password">
+                    </div>
+
+                    <div class="password__message">
+
+                    </div>
+                </div>
+
+                <div class="setting__buttons">
+                    <button type="submit" class="setting__save">Update</button>
+                    <button type="reset" class="setting__cancel">Cancel</button>
+                </div>
+            </form>
+
         </div>
     </div>
     <footer>
