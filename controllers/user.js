@@ -39,13 +39,14 @@ const home = (req, res) => {
 const settings = (req, res) => {
 
     const { userAccount, userPassword } = getUserLangDictionary( req );
-    const { username, email, preferences } = req.user;
+    const { username, email, preferences, provider } = req.user;
 
     const user = {
         username, 
         email,
         language: preferences.language,
-        timezone: preferences.timezone
+        timezone: preferences.timezone,
+        provider
     }
 
     const timezones = {
