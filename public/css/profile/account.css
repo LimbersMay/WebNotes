@@ -104,3 +104,16 @@
         flex-direction: column;
     }
 }
+
+
+/* MOBILE */
+@media screen and (max-width:500px) {
+    .notes__content__container {
+        display: none;
+        text-align: center;
+    }
+
+    .profile__container {
+        width: 100%;
+    }
+}
