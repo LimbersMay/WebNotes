@@ -6,7 +6,6 @@ import { saveNote, removeNote } from "./events/save-del-note-dom.js";
 
 import orderDates from "./events/order-by-date.js";
 import { search } from "./search/search.js";
-import { cancelUpdate } from "./events/cancel-operation.js";
 
 // 1. Eventos a los contenedores de las notas
 // Cuando se rendericen todas las notas, les agregaremos los eventos show Input y remove Target Nota
@@ -42,11 +41,9 @@ searchInput.addEventListener("input", search);
 // Obtenemos los botones del DOM
 const btnSave = document.getElementsByClassName('note__save')[0];
 const btnRemove = document.getElementsByClassName('note__delete')[0];
-const btnCancel = document.getElementsByClassName('note__cancel')[0];
 
 // Les asignamos sus respectivos eventos
 btnSave.addEventListener('click', saveNote);
 btnRemove.addEventListener('click', removeNote);
-btnCancel.addEventListener('click', cancelUpdate);
 
 orderDates();
