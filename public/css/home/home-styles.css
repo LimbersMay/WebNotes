@@ -175,13 +175,30 @@ form.content__form input[type="text"] {
     text-align: right;
 }
 
-.note__save,
-.note__delete {
+.note__buttons {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+
+.note__button{
     border-style: none;
     color: white;
     width: 20%;
     height: 30px;
     border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.note__cancel {
+    background-color: #4a5753;
 }
 
 .note__delete {
