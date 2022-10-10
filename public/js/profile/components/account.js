@@ -1,4 +1,8 @@
+import { getAccountLangDictionaryAPI } from "../api/getSettings.js";
+import { cancelUpdate } from "../controllers/cancel-operation.js";
 import { sendAccountChanges } from "../controllers/sendSettings.js";
+
+const accountDictionary = await getAccountLangDictionaryAPI('userAccount');
 
 // User account options HTML
 const getAccountHtml = () => {
@@ -8,61 +12,65 @@ const getAccountHtml = () => {
             <form class="account__settings" onsubmit="">
                 <div class="user__settings">
                     <div class="setting">
-                        <label class="setting__title" for="username">Username</label><br>
+                        <label class="setting__title" for="username">${ accountDictionary.username }</label><br>
                         <input class="setting__input username" name="username" type="text">
+                        <p class="response__message username__message"></p>
                     </div>
 
                     <div class="setting">
-                            <label class="setting__title" for="email">Email</label><br>
-                            <input class="setting__input email" name="email" type="email">
-                            <p class="email__message"></p>
+                        <label class="setting__title" for="email">${ accountDictionary.email }</label><br>
+                        <input class="setting__input email" name="email" type="email">
+                        <p class="response__message email__message"></p>
                     </div>
                 </div>
 
                 <div class="user__preferences">
                     <div class="setting">
-                        <label class="setting__title" for="language">Language</label><br>
+                        <label class="setting__title" for="language">${ accountDictionary.language }</label><br>
 
-                            <select class="setting__input language" name="language">
-                                <option value="en-US">English</option>
-                                <option value="es-ES">Spanish</option>
-                            </select>
+                        <select class="setting__input language" name="language">
+                            <option value="en-US">English</option>
+                            <option value="es-ES">Spanish</option>
+                        </select>
+                        <p class="response__message language__message"></p>
                     </div>
 
                     <div class="setting">
-                            <label class="setting__title" for="timezone">Timezone</label><br>
+                        <label class="setting__title" for="timezone">${ accountDictionary.timezone }</label><br>
 
-                            <select class="setting__input timezone" name="timezone">
-                                <option value="UTC-11:00">UTC-11:00</option>
-                                <option value="UTC-10:00">UTC-10:00</option>
-                                <option value="UTC-09:00">UTC-09:00</option>
-                                <option value="UTC-8:00">UTC-08:00</option>
-                                <option value="UTC-7:00">UTC-07:00</option>
-                                <option value="UTC-6:00">UTC-06:00</option>
-                                <option value="UTC-5:00">UTC-05:00</option>
-                                <option value="UTC-4:00">UTC-04:00</option>
-                                <option value="UTC-3:00">UTC-03:00</option>
-                                <option value="UTC-2:00">UTC-02:00</option>
-                                <option value="UTC-1:00">UTC-01:00</option>
-                                <option value="UTC+0:00">UTC+00:00</option>
-                                <option value="UTC+1:00">UTC+01:00</option>
-                                <option value="UTC+2:00">UTC+02:00</option>
-                                <option value="UTC+3:00">UTC+03:00</option>
-                                <option value="UTC+4:00">UTC+04:00</option>
-                                <option value="UTC+5:00">UTC+05:00</option>
-                                <option value="UTC+6:00">UTC+06:00</option>
-                                <option value="UTC+7:00">UTC+07:00</option>
-                                <option value="UTC+8:00">UTC+08:00</option>
-                                <option value="UTC+9:00">UTC+09:00</option>
-                                <option value="UTC+10:00">UTC+10:00</option>
-                                <option value="UTC+11:00">UTC+11:00</option>
-                            </select>
+                        <select class="setting__input timezone" name="timezone">
+                            <option value="UTC-11:00">UTC-11:00</option>
+                            <option value="UTC-10:00">UTC-10:00</option>
+                            <option value="UTC-09:00">UTC-09:00</option>
+                            <option value="UTC-8:00">UTC-08:00</option>
+                            <option value="UTC-7:00">UTC-07:00</option>
+                            <option value="UTC-6:00">UTC-06:00</option>
+                            <option value="UTC-5:00">UTC-05:00</option>
+                            <option value="UTC-4:00">UTC-04:00</option>
+                            <option value="UTC-3:00">UTC-03:00</option>
+                            <option value="UTC-2:00">UTC-02:00</option>
+                            <option value="UTC-1:00">UTC-01:00</option>
+                            <option value="UTC+0:00">UTC+00:00</option>
+                            <option value="UTC+1:00">UTC+01:00</option>
+                            <option value="UTC+2:00">UTC+02:00</option>
+                            <option value="UTC+3:00">UTC+03:00</option>
+                            <option value="UTC+4:00">UTC+04:00</option>
+                            <option value="UTC+5:00">UTC+05:00</option>
+                            <option value="UTC+6:00">UTC+06:00</option>
+                            <option value="UTC+7:00">UTC+07:00</option>
+                            <option value="UTC+8:00">UTC+08:00</option>
+                            <option value="UTC+9:00">UTC+09:00</option>
+                            <option value="UTC+10:00">UTC+10:00</option>
+                            <option value="UTC+11:00">UTC+11:00</option>
+                        </select>
+
+                        <p class="response__message timezone__message"></p>
                     </div>
                 </div>
 
                 <div class="setting__buttons">
                     <button type="submit" class="setting__save">Update</button>
-                    <button class="setting__cancel">Cancel</button>
+                    <button type="reset" class="setting__cancel">Cancel</button>
                 </div>
             </form>
         `
@@ -74,6 +82,7 @@ const getAccountHtml = () => {
     
     // Le agregamos el evento al botón de actualizar los datos
     parsedHtml.addEventListener('submit', sendAccountChanges);
+    parsedHtml.getElementsByClassName('setting__cancel')[0].addEventListener('click', cancelUpdate);
 
     return parsedHtml;
 }
