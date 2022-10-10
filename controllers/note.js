@@ -1,15 +1,17 @@
-const { request } = require('express');
 const User = require('../models/user');
+const momentTz = require("moment-timezone");
 
 // Métodos de las notas para guardar y eliminar
-const saveNote = async(req = request, res) => {
+const saveNote = async( req, res ) => {
 
     // Obtenemos al usuario autenticado 
-    const { _id } = req.user;
+    const { _id, preferences } = req.user;
 
     // Creamos un nuevo elemento de Nota
-    const { idNote, title, content, dateClient} = req.body; ;
+    const { idNote, title, content } = req.body;
 
+    const currentDate = momentTz().utc(preferences.timezone).format('LLL');
+    
     // Si el Id de la nota no está vacío, quiere decir que debemos actualizar la nota
     if (idNote !== '') {
 
@@ -25,7 +27,7 @@ const saveNote = async(req = request, res) => {
                 "$set": { 
                     "notes.$.title": title,
                     "notes.$.content": content,
-                    "notes.$.modified_at": dateClient
+                    "notes.$.modified_at": currentDate
                 }
             }
         )
@@ -41,8 +43,8 @@ const saveNote = async(req = request, res) => {
     const note = {
         title,
         content,
-        date: dateClient,
-        modified_at: dateClient
+        date: currentDate,
+        modified_at: currentDate
     }
 
     const user = await User.findOneAndUpdate(
@@ -65,7 +67,7 @@ const saveNote = async(req = request, res) => {
     });
 }
 
-const removeNote = async(req, res) => {
+const removeNote = async( req, res ) => {
 
     // Obtenemos el Id del usuario autentificado
     const { _id } = req.user;

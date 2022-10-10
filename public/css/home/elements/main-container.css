@@ -1,0 +1,10 @@
+.container {
+    width: 100%;
+    height: calc(100% - 75px);
+    background-color: rgb(104, 104, 104);
+
+    margin: 0 auto;
+
+    display: flex;
+    gap: 1px;
+}

@@ -12,6 +12,20 @@
     }
 }
 
+@media screen and (max-width:871px) {
+    .note__title {
+        font-size: 13px;
+    }
+
+    .note__content {
+        font-size: 12px;
+    }
+
+    .note__date {
+        font-size: 10px;
+    }
+}
+
 /* MOBILE */
 @media screen and (max-width:500px) {
     .notes__content__container {
@@ -52,11 +66,5 @@
 
     .note__content {
         visibility: visible;
-    }
-}
-
-@media screen and (max-height:819px) {
-    body {
-        background-color: brown;
     }
 }

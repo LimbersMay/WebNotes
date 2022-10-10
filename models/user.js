@@ -21,7 +21,17 @@ const userSchema = Schema({
         content: String,
         date: Date,
         modified_at: Date
-    }]
+    }],
+    preferences: {
+        language: String,
+        timezone: String
+    },
+    provider: {
+        type: String
+    },
+    providerId: {
+        type: String
+    }
 });
 
 module.exports = model('User', userSchema);

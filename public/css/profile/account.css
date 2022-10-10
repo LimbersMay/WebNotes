@@ -1,0 +1,106 @@
+.account__settings {
+    height: 100%;
+    width: 100%;
+}
+
+.inactive__option {
+    display: none;
+}
+
+/* Solo para el componente seleccionado */
+.active__option {
+    display: block;
+}
+
+.user__settings, .user__preferences {
+
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: left;
+
+    gap: 20px;
+}
+
+.setting__title {
+    font-weight: bold;
+}
+
+.setting__input {
+    outline: none;
+    background-color: rgb(247, 247, 247);
+    border-radius: 5px;
+    padding: 5px;
+
+    border-color: #e4e1e1;
+    border-width: 1px;
+
+    margin-top: 5px;
+    width: 350px;
+}
+
+.setting__input__readOnly {
+    background-color: rgb(236, 233, 233);
+    pointer-events: none;
+}
+
+.setting__buttons {
+    padding-top: 15px;
+}
+
+.setting__save, .setting__cancel {
+    color: white;
+    border-radius: 3px;
+
+    padding: 6px;
+    width: 75px;
+    border-style: none;
+}
+
+.setting__save {
+    background-color: #3f7931;
+}
+
+.setting__cancel {
+    background-color: rgb(126, 122, 122);
+}
+
+.setting__save:hover {
+    background-color: #458b33;
+}
+
+.setting__cancel:hover {
+    background-color: rgb(151, 143, 143);
+}
+
+/* Exception messages */
+.password__message, .response__message {
+    align-self: center;
+}
+
+#request__successfull, #email__successful {
+    color: rgb(13, 82, 42);
+}
+
+#password__exception {
+    color: brown;
+}
+#email__exception {
+    color: brown;
+    padding: 5px;
+}
+
+/* RESPONSIVE FOR THE ACCOUNT  */
+@media screen and (max-width:1000px) {
+
+    .setting {
+        width: 100%;
+    }
+
+    .setting__input {
+        width: 100%;
+    }
+
+    .user__settings, .user__preferences {
+        flex-direction: column;
+    }
+}

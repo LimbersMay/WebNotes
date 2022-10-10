@@ -7,8 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
 
-    <link rel="stylesheet" href="/css/home-styles.css">
-    <link rel="stylesheet" href="/css/home-responsive.css">
+    <link rel="stylesheet" href="/css/home/home-styles.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/images/favicon2.png" type="image/x-icon">
@@ -18,15 +17,22 @@
 
     <header>
 
-        <picture class="header__logo">
-            <img src="/images/webnotes.png" alt="">
-        </picture>
+        <div id="title__container">
+            <picture class="header__logo">
+                <img src="/images/webnotes.png" alt="">
+            </picture>
 
-        <h2 class="header__title">WebNotes</h2>
+            <h2 class="header__title">WebNotes</h2>
+        </div>
 
-        <form class="form__log__out" action="https://webnoteseasy.herokuapp.com/api/auth/logout" method="post">
-            <input class="log__out" type="submit" value="Logout">
-        </form>
+        <div id="user__buttons">
+            <a class="user__settingsBtn" href="{{ getApiUrl }}/user/profile"> {{ dictionary.profile }} </a>
+
+            <form class="form__log__out" action="{{ getApiUrl }}/api/auth/logout" method="post">
+
+                <input class="log__out" type="submit" value="{{ dictionary.logOut }}">
+            </form>
+        </div>
 
     </header>
 
@@ -36,15 +42,14 @@
 
             <form action="" class="content__form">
 
-                <input type="text" placeholder="Search something" class="input__search">
+                <input type="text" placeholder="{{ dictionary.search_something }}" class="input__search">
                 <button class="content__search" type="submit"><i class="fa fa-search"></i></button>
 
             </form>
 
             <button class="content__add__note">
-                <big><b>Add Note</b></big>
+                <big><b>{{ dictionary.add_note }}</b></big>
             </button>
-
 
             <div class="content__notes">
 
@@ -61,34 +66,41 @@
 
                 </div>
                 -->
-                
+
                 {{#each nota}}
-                    
-                    <div id="{{_id}}" class="notes__note" modified_at="{{formatTime modified_at 'LLL'}}">
 
-                        <h3 class="note__title">{{title}}</h3>
-
-                        <p class="note__content">{{content}}</p>
-
-                        <p class="note__date">{{formatTime date 'LL'}}</p>
-
-                    </div>
-       
-                {{/each}}
+                <!-- 
                 
+                modified_at -> base de datos
+                date -> objeto nota
+                
+                -->
+
+                <div id="{{_id}}" class="notes__note" modified_at="{{formatTime modified_at 'LLL'}}">
+
+                    <h3 class="note__title">{{title}}</h3>
+
+                    <p class="note__content">{{content}}</p>
+
+                    <p class="note__date">{{formatTime  date 'LL'}}</p>
+
+                </div>
+
+                {{/each}}
+
             </div>
         </div>
 
         <div class="notes__content__container">
 
-            <textarea class="input__title" cols="39" rows="1" placeholder="Title"></textarea>
+            <textarea class="input__title" cols="39" rows="1" placeholder="{{ dictionary.title }}"></textarea>
 
-            <textarea class="input__body" cols="30" rows="15" placeholder="Input your text here"></textarea>
+            <textarea class="input__body" cols="30" rows="15" placeholder="{{ dictionary.input_text }}"></textarea>
 
             <p class="modified__at"></p>
 
-            <button class="note__save">Save</button>
-            <button class="note__delete">Delete</button>
+            <button class="note__save">{{ dictionary.save }}</button>
+            <button class="note__delete">{{ dictionary.delete }}</button>
 
         </div>
     </div>

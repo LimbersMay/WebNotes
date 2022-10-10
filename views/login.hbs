@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogIn</title>
 
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/login-responsive.css">
+    <link rel="stylesheet" href="/css/login/login.css">
 
     <link rel="icon" type="image/png" href="/images/favicon2.png" type="image/x-icon">
 </head>
@@ -21,46 +20,44 @@
 
         <div class="form__container">
 
-            
             <br><h1>WebNotes</h1><br>
 
-            <p>Welcome to WebNotes</p><br>
+            <p>{{ dictionary.subtitle }}</p><br>
 
             <div id="error__message">
                 {{ errors }}
                 {{ fields_errors }}
             </div>
 
-            <form action="http://localhost:8080/api/auth/login" method="post">
+            <form action="{{ getApiUrl }}/api/auth/login" method="post">
 
-                <input class="input" type="text" placeholder="Email" name="username">
+                <input class="input" type="text" placeholder="{{ dictionary.email }}" name="username">
 
-                <input class="input" type="password" placeholder="password" name="password">
+                <input class="input" type="password" placeholder="{{ dictionary.password }}" name="password">
 
                 <p class="text__forgot">
                     <a class="forgot__password" href="">
-                        <small>¿forgot password?</small>
+                        <small>{{ dictionary.forgot_password }}</small>
                     </a>
                 </p>
 
-                <input class="date__hidden" type="hidden" name="timezone" value="">
-
-                <input class="login__button" type="submit" value="Log In">
+                <input class="login__button" type="submit" value="{{ dictionary.login }}">
             </form>
 
             <p class="container__or">
                 <span class="text">or</span>
             </p><br>
-
-            <p>Log In with Google</p>
+    
+            <a href="{{ getApiUrl }}/api/auth/google" id="google-sigin">{{ dictionary.signin_with_google }}</a>
 
             <div class="signUp__container">
-                <p>New WebNotes?</p>
-                <a href="/user/signin">Create Account</a>
+                <p>{{ dictionary.new_user }}</p>
+                <a href="/user/signin">{{ dictionary.register }}</a>
             </div>
 
         </div>
     </div>
+    
     <script type="module" src="/js/helpers.js"></script>
 </body>
 </html>

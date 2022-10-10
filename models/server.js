@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const moment = require("moment")
 
 const momentTz = require("moment-timezone");
 
@@ -11,6 +10,7 @@ const cookieParser = require('cookie-parser');
 const { passport } = require('../config/passport');
 const session = require('express-session');
 const flash = require('express-flash');
+const getApiUrl = require('../helpers/getApiUrl');
 
 class Server {
 
@@ -20,12 +20,13 @@ class Server {
         this.port = process.env.PORT;
 
         // Handlebars config
-        hbs.registerPartials(__dirname + "/views/partials");
+        hbs.registerPartials(__dirname + "/views");
         this.app.set('view engine', 'hbs');
 
         // Rutas
         this.authPath = '/api/auth/';
         this.userPath = '/user';
+        this.userConfigPath = '/api/user-config'
         this.notePath = '/api/note';
         this.homePath = '/';
         
@@ -69,6 +70,7 @@ class Server {
             resave: false,
             saveUninitialized: true,
             cookie: {
+                SameSite: 'none',
                 maxAge: 1000 * 60 * 60 * 24 // 1 day
             }
         }));
@@ -83,9 +85,22 @@ class Server {
     helpers () {
 
         hbs.registerHelper('formatTime', (date, format) => {
-
-            let momentFormatted = momentTz(date).tz(process.env.TZCLIENT).format(format);
+            let momentFormatted = momentTz(date).format(format);
             return momentFormatted;
+        });
+
+        hbs.registerHelper('hasProvider', ( provider ) => {
+            if (!provider) return;
+
+            return 'setting__input__readOnly';
+        })
+
+        hbs.registerHelper('isSelected', (option, value) => {
+            return option === value ? 'selected' : '';
+        })
+
+        hbs.registerHelper('getApiUrl', () => {
+            return getApiUrl();
         });
     }
 
@@ -93,6 +108,7 @@ class Server {
         this.app.use(this.homePath, require('../routes/home'));
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.userPath, require('../routes/user'));
+        this.app.use(this.userConfigPath, require('../routes/user-config'));
         this.app.use(this.notePath, require('../routes/note'));
     }
 

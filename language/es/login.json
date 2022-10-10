@@ -6,5 +6,6 @@
     "forgot_password": "¿Olvidó su contraseña?",
     "login": "Iniciar sesión",
     "new_user": "¿Nuevo usuario?",
-    "register": "Crear cuenta"
+    "register": "Crear cuenta",
+    "signin_with_google": "Ingresar con Google"
 }

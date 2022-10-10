@@ -1,20 +1,21 @@
+
+let apiUrl = (window.location.hostname.includes('localhost')) 
+    ? 'http://localhost:8080'
+    : 'https://webnoteseasy.herokuapp.com';
+
 // Función para enviar los datos a la base de datos
 const saveNoteDb = (idNote, title, content) => {
     // Enviamos los datos usando fetch 
 
-    // Fecha para el servidor
-    let dateClient = new Date().toISOString();
-
     const body = {
         idNote,
         title,
-        content,
-        dateClient
+        content
     };
 
     return new Promise(async(resolve, reject) => {
 
-        const bodyResponse = await fetch('https://webnoteseasy.herokuapp.com/api/note/saveNote', {
+        const bodyResponse = await fetch(`${ apiUrl }/api/note/saveNote`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -26,7 +27,7 @@ const saveNoteDb = (idNote, title, content) => {
         
         // Si ocurrió un error al hacer la petición lo devolvemos en la promesa
         if (errors !== undefined) {
-            errors = Object.entries(errors.errors);
+            errors = Object.entries(errors);
             return reject(errors);
         }
 
@@ -40,7 +41,7 @@ const removeNoteDb = (idNote) => {
 
     return new Promise(async(resolve, reject) => {
 
-        const bodyResponse = await fetch('https://webnoteseasy.herokuapp.com/api/note/removeNote', {
+        const bodyResponse = await fetch(`${ apiUrl }/api/note/removeNote`, {
 
             method: 'POST',
             headers: {

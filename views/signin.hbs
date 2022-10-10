@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LogIn</title>
 
-    <link rel="stylesheet" href="/css/login.css">
-    <link rel="stylesheet" href="/css/signin.css">
-    <link rel="stylesheet" href="/css/login-responsive.css">
+    <link rel="stylesheet" href="/css/signin/signin.css">
 
     <link rel="icon" href="/images/favicon2.png" type="image/x-icon">
 </head>
@@ -25,7 +23,7 @@
             
             <br><h1>WebNotes</h1><br>
 
-            <p>Welcome to WebNotes</p><br>
+            <p>{{ dictionary.subtitle }}</p><br>
 
             <div id="error__message">
                 {{ fields_errors }}
@@ -33,24 +31,18 @@
 
             <form action="https://webnoteseasy.herokuapp.com/api/auth/signin" method="post">
 
-                <input class="input" type="text" placeholder="Username" name="username">
+                <input class="input" type="text" placeholder="{{ dictionary.username }}" name="username">
 
-                <input class="input" type="text" placeholder="Email" name="email">
+                <input class="input" type="text" placeholder="{{ dictionary.email }}" name="email">
 
-                <input class="input" type="password" placeholder="Password" name="password">
+                <input class="input" type="password" placeholder="{{ dictionary.password }}" name="password">
 
-                <input class="input" type="password" placeholder="Repeat password" name="password_repeat">
+                <input class="input" type="password" placeholder="{{ dictionary.repeat_password }}" name="password_repeat">
 
                 <br>
 
-                <input class="login__button" type="submit" value="Sign In">
+                <input class="login__button" type="submit" value="{{ dictionary.signIn }}">
             </form>
-
-            <p class="container__or">
-                <span class="text">or</span>
-            </p><br>
-
-            <p>Sign In with Google</p>
         </div>
     </div>
 
