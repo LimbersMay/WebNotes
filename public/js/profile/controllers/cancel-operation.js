@@ -2,10 +2,11 @@ import makeVisible from "../../events/make-visible.js";
 
 const cancelUpdate = ( event ) => {
 
-    event.preventDefault();
-
-    // refresh the page
-    location.reload();
+    // Comprobamos si nos encontramos en un dispositivo pequeño
+    if (screen.width < 500) {
+        
+        makeVisible('list');
+    }
 
 }
 
