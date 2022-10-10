@@ -38,7 +38,7 @@ const home = (req, res) => {
 
 const settings = (req, res) => {
 
-    const { userAccount, userPassword } = getUserLangDictionary( req );
+    const { profile, userAccount, userPassword } = getUserLangDictionary( req );
     const { username, email, preferences, provider } = req.user;
 
     const user = {
@@ -77,12 +77,13 @@ const settings = (req, res) => {
 
     const languages = {
         "en-US": "English",
-        "es-ES": "Español"
+        "es-ES": "Spanish"
     }
 
     res.render('profile', {
         userAccount,
         userPassword,
+        profile,
         user,
         options: {
             timezones,
