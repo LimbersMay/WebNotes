@@ -79,7 +79,25 @@ const getUserConfig = ( req, res ) => {
     );
 }
 
+const getUserLangDict = ( req, res ) => {
 
+    const { component } = req.params;
+
+    switch ( component ) {
+        case 'userAccount': 
+            const { userAccount } = getUserLangDictionary( req );
+            return res.status(200).json(userAccount);
+
+        case 'userPassword':
+            const { userPassword } = getUserLangDictionary( req );
+            return res.status(200).json(userPassword);
+
+        default:
+            return res.status(400).json({
+                msg: 'Invalid component'
+            });
+    }
+}
 
 module.exports = {
     putUserConfig,
