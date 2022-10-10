@@ -1,5 +1,4 @@
-
-@import url('./home-template.css'); 
+@import url('./home-template.css');
 
 /* STYLES OF THE HEADER */
 /* @import './elements/header.css' */
@@ -175,13 +174,30 @@ form.content__form input[type="text"] {
     text-align: right;
 }
 
-.note__save,
-.note__delete {
+.note__button {
     border-style: none;
     color: white;
     width: 20%;
     height: 30px;
     border-radius: 10px;
+}
+
+.note__buttons {
+    display: flex;
+    justify-content: left;
+    gap: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.note__cancel {
+    background-color: #4a5753;
 }
 
 .note__delete {
@@ -235,7 +251,78 @@ form.content__form input[type="text"] {
     }
 
     .note__button {
-        width: 70px;
+        width: 35%;
+    }
+
+    .profile__container {
+        width: 100%;
+    }
+
+    .notes__note {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .note__date {
+        visibility: visible;
+    }
+
+    .note__content {
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width:871px) {
+    .note__title {
+        font-size: 13px;
+    }
+
+    .note__content {
+        font-size: 12px;
+    }
+
+    .note__date {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width:871px) {
+    .note__title {
+        font-size: 13px;
+    }
+
+    .note__content {
+        font-size: 12px;
+    }
+
+    .note__date {
+        font-size: 10px;
+    }
+}
+
+/* MOBILE */
+@media screen and (max-width:500px) {
+    .notes__content__container {
+        display: none;
+        text-align: center;
+    }
+
+    .input__title {
+        font-size: 24px;
+    }
+
+    .input__body {
+        font-size: 16px;
+    }
+
+    .modified__at {
+        font-size: 12px;
+        padding: 20px;
+    }
+
+    .note__save,
+    .note__delete {
+        width: 30%;
     }
 
     .profile__container {
