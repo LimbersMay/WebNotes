@@ -3,7 +3,6 @@
 @import './elements/profile-container.css';
 @import './elements/input-container.css';
 @import './elements/footer.css';
-@import './home-responsive.css';
 
 * {
     margin: 0;
