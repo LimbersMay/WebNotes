@@ -1,5 +1,5 @@
 
-@import url('./home-template.css'); 
+@import './home-template.css';
 
 /* STYLES OF THE HEADER */
 /* @import './elements/header.css' */
@@ -198,62 +198,6 @@ form.content__form input[type="text"] {
 
 .note__save:hover {
     background-color: #1d8f61;
-}
-
-@media screen and (max-width:871px) {
-    .note__title {
-        font-size: 13px;
-    }
-
-    .note__content {
-        font-size: 12px;
-    }
-
-    .note__date {
-        font-size: 10px;
-    }
-}
-
-/* MOBILE */
-@media screen and (max-width:500px) {
-    .notes__content__container {
-        display: none;
-        text-align: center;
-    }
-
-    .input__title {
-        font-size: 24px;
-    }
-
-    .input__body {
-        font-size: 16px;
-    }
-
-    .modified__at {
-        font-size: 12px;
-        padding: 20px;
-    }
-
-    .note__button {
-        width: 70px;
-    }
-
-    .profile__container {
-        width: 100%;
-    }
-
-    .notes__note {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .note__date {
-        visibility: visible;
-    }
-
-    .note__content {
-        visibility: visible;
-    }
 }
 
 /* Footer of the page */
