@@ -1,3 +1,4 @@
+import { targetElement } from '../helpers/target-element.js';
 import { getNoteInformation } from './get-note-inf.js';
 import makeVisible from './make-visible.js';
 
@@ -7,7 +8,7 @@ const showInput = (event = event) => {
     if (!event.target.classList.contains('notes__note')) {
         return;
     }
-    
+
     event.preventDefault();
 
     // Al hacer click pueden pasar 2 cosas, muestro el contenido del lado derecho o oculto la ventana para mostrar la otra
@@ -17,13 +18,19 @@ const showInput = (event = event) => {
     // Verificamos que la pantalla este debajo de los 500pxs
     if (screen.width < 500) {
         makeVisible('input');
+
+        const cancelBtn = document.getElementsByClassName('note__cancel')[0];
+        const buttonsContainer = document.getElementsByClassName('note__buttons')[0];
+
+        targetElement(cancelBtn, null, 'visible');
+        buttonsContainer.style.justifyContent = 'center';
     }
 
     // CASO 2. EN CASO DE ESTAR EN UNA COMPUTADORA, QUEREMOS MOSTRAR EL CONTENIDO DE LA TAREA DEL LADO DERECHO 
-    
+
     // Obtenemos el elemento del que se hizo click
     const elemento = event.target;
-    
+
     // Obtenemos sus hijos
     const hijos = elemento.children;
 
@@ -46,5 +53,6 @@ const showInput = (event = event) => {
     // Le asignamos el valor del contenido
     inputContent.value = contenido;
 }
+
 
 export default showInput;
