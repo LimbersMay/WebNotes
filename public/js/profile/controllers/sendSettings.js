@@ -1,4 +1,5 @@
 import { updateAccountChangesAPI, updateAccountPasswordAPI } from "../api/updateSettings.js";
+import { showSucessMessage } from "../handleMessages/sendSettings-succes.js";
 
 const handleMessage = ( element, id, message ) => {
     element.id = id;
@@ -16,8 +17,9 @@ const sendAccountChanges = async (event) => {
 
     try {
         const response = await updateAccountChangesAPI(bodyRequest);
-        handleMessage( emailMessageHtml, 'email__successful', response.msg);
+        showSucessMessage( response, event );
     } catch ( error ) {
+        console.log(error);
         handleMessage( emailMessageHtml, 'email__exception', error.msg);
     }
 }

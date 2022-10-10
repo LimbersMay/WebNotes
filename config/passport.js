@@ -54,7 +54,7 @@ passport.use(new GoogleStrategy({
 }, async (issuer, profile, cb) => {
 
     const usuario = await User.findOne({
-            $or: [
+            $and: [
                 {"providerId": profile.id, "provider": "google"},
                 {"email": profile.emails[0].value}
             ]
@@ -64,15 +64,25 @@ passport.use(new GoogleStrategy({
     // Si el usuario no existe lo creamos
     if (!usuario) {
 
-        const username = profile.displayName;
-        const email = profile.emails[0].value;
-        const password = '.';
-        const provider = 'google';
-        const providerId = profile.id;
+        // Verificamos que el correo no exista
+        const usuarioExistente = await User.findOne({ email: profile.emails[0].value });
 
-        const usuario = new User({ username, email, password, provider, providerId });
-        usuario.save();
-        return cb(null, usuario);
+        if (!usuarioExistente) {
+            const username = profile.displayName;
+            const email = profile.emails[0].value;
+            const password = '.';
+            const provider = 'google';
+            const providerId = profile.id;
+
+            const usuario = new User({ username, email, password, provider, providerId });
+            usuario.save();
+            
+            return cb(null, usuario);
+        }
+
+        return cb(null, false, {
+            message: 'The email is already registered'
+        });
     }
 
     return cb(null, usuario);

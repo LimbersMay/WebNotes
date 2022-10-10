@@ -1,6 +1,11 @@
 const { Router } = require('express');
 const { check } = require('express-validator');
-const { putUserConfig, putUserPassword, getUserConfig } = require('../controllers/user-config');
+const { 
+    putUserConfig, 
+    putUserPassword, 
+    getUserConfig, getUserLangDict 
+} = require('../controllers/user-config');
+
 const { esPropietarioEmail } = require('../helpers/db-validators');
 const { estaAutenticado, validarErrores } = require('../middlewares/note-validator');
 const { validatePasswordChange } = require('../middlewares/password-validator');
@@ -21,5 +26,7 @@ router.put('/change-password', [
 ], putUserPassword);
 
 router.get('/get-config', estaAutenticado, getUserConfig);
+
+router.get('/get-langDictionary/:component', estaAutenticado, getUserLangDict);
 
 module.exports = router;
