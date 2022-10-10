@@ -82,7 +82,7 @@
 
                     <p class="note__content">{{content}}</p>
 
-                    <p class="note__date">{{formatTime  date 'LL'}}</p>
+                    <p class="note__date">{{formatTime date 'LL'}}</p>
 
                 </div>
 
@@ -99,9 +99,11 @@
 
             <p class="modified__at"></p>
 
-            <button class="note__save">{{ dictionary.save }}</button>
-            <button class="note__delete">{{ dictionary.delete }}</button>
-
+            <div class="note__buttons">
+                <button class="note__save note__button">{{ dictionary.save }}</button>
+                <button class="note__delete note__button">{{ dictionary.delete }}</button>
+                <button class="note__cancel note__button hidden">{{ dictionary.cancel }}</button>
+            </div>
         </div>
     </div>
     <footer>
