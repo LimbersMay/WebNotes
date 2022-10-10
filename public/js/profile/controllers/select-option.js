@@ -1,44 +1,42 @@
-import { renderElement } from "../../helpers/render_element.js";
+import makeVisible from "../../events/make-visible.js";
 import { targetElement } from "../../helpers/target-element.js";
-import { getAccountHtml } from "../components/account.js"
-import { getPasswordHtml } from "../components/password.js";
-import { getAccountSettings } from "./getSettings.js";
-
-const settingsContainer = document.getElementsByClassName('notes__content__container')[0];
 
 const showAccountContent = ({ target }) => {
 
     const currentActiveElement = document.getElementsByClassName('active')[0];
-
-    if (currentActiveElement === target) return;
+    const currentActiveOption = document.getElementsByClassName('active__option')[0];
         
     // Mantenemos activo al elemento actual seleccionado
-    targetElement( target, currentActiveElement );
+    targetElement( target, currentActiveElement, 'active' );
 
     // Obtenemos el HTML del perfil 
-    const accountHtml = getAccountHtml();
+    const accountHtml = document.getElementById('account__options');
 
-    // Lo renderizamos solo si no está activo
-    renderElement( accountHtml, settingsContainer );
+    // Hacemos target al componente de la cuenta para que se muestre en pantalla
+    targetElement( accountHtml, currentActiveOption, 'active__option' );
 
-    // Mostramos las configuraciones previas del usuario 
-    getAccountSettings( accountHtml );
+    // Verificamos el tamaño de la pantalla
+    if (screen.width < 500) makeVisible('input');
 }   
 
 const showPasswordContent = ({ target }) => {
 
     const currentActiveElement = document.getElementsByClassName('active')[0];
+    const currentActiveOption = document.getElementsByClassName('active__option')[0];
 
     if (currentActiveElement === target) return;
 
     // Mantenemos activo al elemento actual seleccionado
-    targetElement( target, currentActiveElement);
+    targetElement( target, currentActiveElement, 'active');
 
     // Obtenemos el HTML del password 
-    const passwordHtml = getPasswordHtml();
+    const passwordHtml = document.getElementById('account__password');
 
     // Lo renderizamos solo si no está activo
-    renderElement( passwordHtml, settingsContainer );
+    targetElement( passwordHtml, currentActiveOption, 'active__option' );
+
+    // Verificamos el tamaño de la pantalla
+    if (screen.width < 500) makeVisible('input');
 }
 
 export {
