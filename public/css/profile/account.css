@@ -3,6 +3,15 @@
     width: 100%;
 }
 
+.inactive__option {
+    display: none;
+}
+
+/* Solo para el componente seleccionado */
+.active__option {
+    display: block;
+}
+
 .user__settings, .user__preferences {
 
     padding-bottom: 15px;

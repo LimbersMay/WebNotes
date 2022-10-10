@@ -37,7 +37,59 @@ const home = (req, res) => {
 }
 
 const settings = (req, res) => {
-    res.render('profile');
+
+    const { profile, userAccount, userPassword } = getUserLangDictionary( req );
+    const { username, email, preferences, provider } = req.user;
+
+    const user = {
+        username, 
+        email,
+        language: preferences.language,
+        timezone: preferences.timezone,
+        provider
+    }
+
+    const timezones = {
+        "UTC-11": "UTC-11:00",
+        "UTC-10": "UTC-10:00",
+        "UTC-9": "UTC-09:00",
+        "UTC-8": "UTC-08:00",
+        "UTC-7": "UTC-07:00",
+        "UTC-6": "UTC-06:00",
+        "UTC-5": "UTC-05:00",
+        "UTC-4": "UTC-04:00",
+        "UTC-3": "UTC-03:00",
+        "UTC-2": "UTC-02:00",
+        "UTC-1": "UTC-01:00",
+        "UTC": "UTC+00:00",
+        "UTC+1": "UTC+01:00",
+        "UTC+2": "UTC+02:00",
+        "UTC+3": "UTC+03:00",
+        "UTC+4": "UTC+04:00",
+        "UTC+5": "UTC+05:00",
+        "UTC+6": "UTC+06:00",
+        "UTC+7": "UTC+07:00",
+        "UTC+8": "UTC+08:00",
+        "UTC+9": "UTC+09:00",
+        "UTC+10": "UTC+10:00",
+        "UTC+11": "UTC+11:00"
+    };
+
+    const languages = {
+        "en-US": "English",
+        "es-ES": "Spanish"
+    }
+
+    res.render('profile', {
+        userAccount,
+        userPassword,
+        profile,
+        user,
+        options: {
+            timezones,
+            languages
+        }
+    });
 }
 
 module.exports = {

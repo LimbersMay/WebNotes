@@ -1,11 +1,11 @@
 
-const targetElement = ( element, currentActiveElement ) => {
+const targetElement = ( element, currentActiveElement, ariaClass ) => {
     // Eliminamos la clase active de todos los elementos que la tengan
     if (currentActiveElement) 
-        currentActiveElement.classList.remove('active');
+        currentActiveElement.classList.remove(ariaClass);
 
     // Mantenemos activo el elemento actual 
-    element.classList.add('active');
+    element.classList.add(ariaClass);
 
 } 
 

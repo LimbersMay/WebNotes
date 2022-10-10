@@ -89,6 +89,16 @@ class Server {
             return momentFormatted;
         });
 
+        hbs.registerHelper('hasProvider', ( provider ) => {
+            if (!provider) return;
+
+            return 'setting__input__readOnly';
+        })
+
+        hbs.registerHelper('isSelected', (option, value) => {
+            return option === value ? 'selected' : '';
+        })
+
         hbs.registerHelper('getApiUrl', () => {
             return getApiUrl();
         });
