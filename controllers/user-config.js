@@ -1,8 +1,6 @@
 const User = require('../models/user');
 const bcryptjs = require('bcryptjs');
 
-const { getUserLangDictionary } = require('../helpers/user-preferences');
-
 const putUserConfig = async ( req, res ) => {
 
     const { _id } = req.user;
@@ -60,43 +58,6 @@ const putUserPassword = async( req, res ) => {
     return res.status(200).json({
         msg: 'Password changed successfully'
     });
-}
-
-const getUserConfig = ( req, res ) => {
-
-    const { email, username, preferences, provider } = req.user;
-
-    const bodyResponse = {
-        email,
-        username,
-        language: preferences.language,
-        timezone: preferences.timezone,
-        provider
-    }
-
-    res.status(200).json(
-        bodyResponse
-    );
-}
-
-const getUserLangDict = ( req, res ) => {
-
-    const { component } = req.params;
-
-    switch ( component ) {
-        case 'userAccount': 
-            const { userAccount } = getUserLangDictionary( req );
-            return res.status(200).json(userAccount);
-
-        case 'userPassword':
-            const { userPassword } = getUserLangDictionary( req );
-            return res.status(200).json(userPassword);
-
-        default:
-            return res.status(400).json({
-                msg: 'Invalid component'
-            });
-    }
 }
 
 module.exports = {

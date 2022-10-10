@@ -25,8 +25,4 @@ router.put('/change-password', [
     validarErrores
 ], putUserPassword);
 
-router.get('/get-config', estaAutenticado, getUserConfig);
-
-router.get('/get-langDictionary/:component', estaAutenticado, getUserLangDict);
-
 module.exports = router;
