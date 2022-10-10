@@ -1,4 +1,3 @@
-import { targetElement } from '../helpers/target-element.js';
 import { getNoteInformation } from './get-note-inf.js';
 import makeVisible from './make-visible.js';
 
@@ -18,14 +17,6 @@ const showInput = (event = event) => {
     // Verificamos que la pantalla este debajo de los 500pxs
     if (screen.width < 500) {
         makeVisible('input');
-
-        // Hacemos visible el botón de cancelar
-        const cancelBtn = document.getElementsByClassName('note__cancel')[0];
-
-        const buttonsContainer = document.getElementsByClassName('note__buttons')[0];
-
-        targetElement(cancelBtn, null, 'visible');
-        buttonsContainer.style.justifyContent = 'center';
     }
 
     // CASO 2. EN CASO DE ESTAR EN UNA COMPUTADORA, QUEREMOS MOSTRAR EL CONTENIDO DE LA TAREA DEL LADO DERECHO 
