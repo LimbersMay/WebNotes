@@ -1,8 +1,8 @@
 module.exports = getApiUrl = () => {
 
-    if (process.env.NODE_ENV === 'production') {
-        return 'https://webnoteseasy.herokuapp.com';
+    if (process.env.NODE_ENV === 'development') {
+        return 'http://localhost';
     }
 
-    return 'http://localhost:8080';
+    return 'https://webnoteseasy.herokuapp.com';
 }
