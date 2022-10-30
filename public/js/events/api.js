@@ -38,7 +38,7 @@ const removeNoteDb = (idNote) => {
 
     return new Promise(async(resolve, reject) => {
 
-        const bodyResponse = await fetch(`${ apiUrl }/api/note/removeNote`, {
+        const bodyResponse = await fetch(`${ getApiUrl() }/api/note/removeNote`, {
 
             method: 'POST',
             headers: {
