@@ -1,7 +1,4 @@
-
-let apiUrl = (window.location.hostname.includes('localhost')) 
-    ? 'http://localhost:8080'
-    : 'https://webnoteseasy.herokuapp.com';
+import { getApiUrl } from "../helpers/getApiUrl.js";
 
 // Función para enviar los datos a la base de datos
 const saveNoteDb = (idNote, title, content) => {
@@ -15,7 +12,7 @@ const saveNoteDb = (idNote, title, content) => {
 
     return new Promise(async(resolve, reject) => {
 
-        const bodyResponse = await fetch(`${ apiUrl }/api/note/saveNote`, {
+        const bodyResponse = await fetch(`${ getApiUrl() }/api/note/saveNote`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

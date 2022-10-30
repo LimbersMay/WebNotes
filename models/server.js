@@ -10,7 +10,6 @@ const cookieParser = require('cookie-parser');
 const { passport } = require('../config/passport');
 const session = require('express-session');
 const flash = require('express-flash');
-const getApiUrl = require('../helpers/getApiUrl');
 
 class Server {
 
@@ -100,7 +99,7 @@ class Server {
         })
 
         hbs.registerHelper('getApiUrl', () => {
-            return getApiUrl();
+            return process.env.API_URL;
         });
     }
 
