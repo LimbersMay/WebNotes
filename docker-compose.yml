@@ -7,7 +7,7 @@ services:
     networks:
       - webnotesNetwork
     ports:
-      - "80:${PORT}"
+      - "80:8080"
     restart: unless-stopped
 
   mongo-db:
