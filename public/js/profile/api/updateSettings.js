@@ -1,6 +1,4 @@
-let apiUrl = (window.location.hostname.includes('localhost')) 
-    ? 'http://localhost:8080'
-    : 'https://webnoteseasy.herokuapp.com';
+import { getApiUrl } from "../../helpers/getApiUrl.js";
 
 const updateAccountChangesAPI = async( bodyRequest ) => {
 
@@ -13,7 +11,7 @@ const updateAccountChangesAPI = async( bodyRequest ) => {
         }
     */
 
-    const response = await fetch(apiUrl + '/api/user-config/save-config', {
+    const response = await fetch(getApiUrl() + '/api/user-config/save-config', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
