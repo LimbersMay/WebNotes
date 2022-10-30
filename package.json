@@ -1,6 +1,9 @@
 {
   "name": "webnotes",
   "version": "1.0.0",
+  "engines": {
+    "node": "18.12.0"
+  },
   "description": "Website where you can save all your notes and search them, you can log in or register with Google or Facebook",
   "main": "index.js",
   "scripts": {
