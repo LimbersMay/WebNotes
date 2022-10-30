@@ -39,7 +39,7 @@ const updateAccountPasswordAPI = async( bodyRequest ) => {
 
     */
 
-    const response = await fetch(apiUrl + '/api/user-config/change-password', {
+    const response = await fetch(getApiUrl() + '/api/user-config/change-password', {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
